@@ -1,0 +1,65 @@
+[
+	{
+		"id": "funradio",
+		"name": "Fun Rádio",
+		"genre": "Pop",
+		"info": "192 kbps",
+		"url": "https://stream.funradio.sk:18443/fun192.mp3",
+		"imgUrl": "https://www.funradio.sk/img/logo/apple-icon-180x180.png",
+		"rdsUrl": "https://cdn.funradio.sk/sepia/live.xml"
+	},
+	{
+		"id": "funczsk",
+		"name": "Fun Rádio CZ/SK",
+		"genre": "CZ/SK",
+		"info": "128 kbps",
+		"url": "https://stream.funradio.sk:18443/cs128.mp3",
+		"imgUrl": "https://www.funradio.sk/img/logo/apple-icon-180x180.png",
+		"rdsUrl": "https://cdn.funradio.sk/sepia/cs.xml"
+	},
+	{
+		"id": "fundance",
+		"name": "Fun Rádio Get Fun",
+		"genre": "Pop, Dance",
+		"info": "128 kbps",
+		"url": "https://stream.funradio.sk:18000/dance128.mp3",
+		"imgUrl": "https://www.funradio.sk/img/logo/apple-icon-180x180.png",
+		"rdsUrl": "https://cdn.funradio.sk/sepia/dance.xml"
+	},
+	{
+		"id": "funchill",
+		"name": "Fun Rádio Chill",
+		"genre": "Chill",
+		"info": "128 kbps",
+		"url": "https://stream.funradio.sk:8000/chill128.mp3",
+		"imgUrl": "https://www.funradio.sk/img/logo/apple-icon-180x180.png",
+		"rdsUrl": "https://cdn.funradio.sk/sepia/chill.xml"
+	},
+	{
+		"id": "radioke",
+		"name": "Rádio Košice",
+		"genre": "Generic",
+		"info": "128 kbps",
+		"url": "http://stream.alternet.sk:8000/radiokosice-128.mp3",
+		"imgUrl": "https://www.radiokosice.sk/favicon-196x196.png",
+		"rdsUrl": "https://www.tvkosice.sk/api/playlists/radiokosice?limit=1"
+	},
+	{
+		"id": "radioexpress",
+		"name": "Rádio Expres",
+		"genre": "Generic",
+		"info": "128 kbps",
+		"url": "https://stream.bauermedia.sk/128.mp3",
+		"imgUrl": "https://www.expres.sk/wp-content/uploads/2015/06/cropped-favicon-1-256x256.png",
+		"rdsUrl": "https://api.radiorock.sk/playlist"
+	},
+	{
+		"id": "radiovlna",
+		"name": "Rádio Vlna",
+		"genre": "Generic",
+		"info": "128 kbps",
+		"url": "https://stream.radiovlna.sk/vlna-hi.mp3",
+		"imgUrl": "https://cdn.radiovlna.sk/img/logo/apple-touch-icon.png",
+		"rdsUrl": "https://cdn.radiovlna.sk/sepia/vlna.xml"
+	}
+]
