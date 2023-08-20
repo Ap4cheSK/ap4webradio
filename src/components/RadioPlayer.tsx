@@ -2,6 +2,7 @@ import radioJsonList from "../assets/radios.json";
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import AppHeader from "./AppHeader";
+import ErrorPage from "./ErrorPage";
 
 function RadioPlayer() {
 	function playButton() {
@@ -20,9 +21,11 @@ function RadioPlayer() {
 		);
 	}
 
+	// Find desired radiostation
 	const { radioid } = useParams();
 	const radioStation = radioJsonList.find(radio => radio.id === radioid);
 
+	// Init
 	const audioStream = useRef<HTMLAudioElement>(null);
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [volume, setVolume] = useState(20);
@@ -79,10 +82,7 @@ function RadioPlayer() {
 	}
 
 	return (
-		<>
-			<AppHeader/>
-			<h1>Error! Radio not found!</h1>
-		</>
+		<ErrorPage error="Radio Not Found"/>
 	);
 }
 

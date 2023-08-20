@@ -50,6 +50,20 @@ p {
 	h3 {font-size: 22px;}
 	p {font-size: 20px;}
 }
+// Error Page
+
+.error-page {
+	height: 100vh;
+	display: grid;
+	align-content: center;
+	text-align: center;
+	
+	.error-code {
+		text-shadow: 0px 0px 5px black;
+		margin-top: 16px;
+		color: red;
+	}
+}
 
 // Containers
 
