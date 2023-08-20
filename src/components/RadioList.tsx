@@ -33,7 +33,7 @@ function RadioList() {
 			<AppHeader/>
 			<section className="radio-list">
 				{radioJsonList.map(station => (
-					<RadioItem station={
+					<RadioItem key={station.id} station={
 						{
 							id: station.id,
 							name: station.name,

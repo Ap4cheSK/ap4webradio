@@ -42,7 +42,7 @@
 		"info": "128 kbps",
 		"url": "http://stream.alternet.sk:8000/radiokosice-128.mp3",
 		"imgUrl": "https://www.radiokosice.sk/favicon-196x196.png",
-		"rdsUrl": "https://www.tvkosice.sk/api/playlists/radiokosice?limit=1"
+		"rdsUrl": "https://www.tvkosice.sk/api/playlists/radiokosice?limit=2"
 	},
 	{
 		"id": "radioexpress",
@@ -51,7 +51,7 @@
 		"info": "128 kbps",
 		"url": "https://stream.bauermedia.sk/128.mp3",
 		"imgUrl": "https://www.expres.sk/wp-content/uploads/2015/06/cropped-favicon-1-256x256.png",
-		"rdsUrl": "https://api.radiorock.sk/playlist"
+		"rdsUrl": ""
 	},
 	{
 		"id": "radiovlna",

@@ -144,8 +144,9 @@ p {
 	text-align: center;
 
 	.radio-player-station {
-		display: flex;
-		flex-direction: column;
+		display: grid;
+		grid-auto-flow: row;
+		justify-items: center;
 		gap: 8px;
 
 		.radio-player-avatar {

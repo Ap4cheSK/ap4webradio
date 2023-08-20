@@ -3,6 +3,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import AppHeader from "./AppHeader";
 import ErrorPage from "./ErrorPage";
+import RDSradioke from "./rds/RDSradioke";
+import RDSfunvlna from "./rds/RDSradiofunvlna";
 
 function RadioPlayer() {
 	function playButton() {
@@ -29,6 +31,7 @@ function RadioPlayer() {
 	const audioStream = useRef<HTMLAudioElement>(null);
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [volume, setVolume] = useState(20);
+	const [rdsString, setRdsString] = useState("");
 
 	function handlePlay() {setIsPlaying(true)}
 	function handleStop() {setIsPlaying(false)}
@@ -47,16 +50,24 @@ function RadioPlayer() {
 		if(audioStream.current) audioStream.current.volume = volume / 100;
 	}, [volume]);
 
-	// async function rdsData() {
-	// 	if(radioStation?.rdsUrl) {
-	// 		const rdsDataFetch = await fetch(radioStation.rdsUrl)
-	// 		const rdsDataVar = rdsDataFetch.text();
+	useEffect(() => {
+		rdsCall();
+		async function rdsCall() {
+			if(radioStation?.id === "funradio" || radioStation?.id === "funczsk" || radioStation?.id === "fundance" || radioStation?.id === "funchill" || radioStation?.id === "radiovlna") {
+				// FunRadio / RadioVlna RDS
+				setRdsString(await RDSfunvlna({ rdsUrl: radioStation.rdsUrl }));
+			} else if(radioStation?.id === "radioke") {
+				// RadioKE RDS
+				setRdsString(await RDSradioke({ rdsUrl: radioStation.rdsUrl }));
+			} else {
+				// No RDS
+				setRdsString("RDS Unsupported");
+			}
+		}
 
-	// 		console.log(rdsDataVar);
-	// 	}
-	// }
-
-	// rdsData();
+		const rdsInterval = setInterval(rdsCall, 30000);
+		return () => clearInterval(rdsInterval);
+	});
 
 	if(radioStation) {
 		return (
@@ -76,6 +87,11 @@ function RadioPlayer() {
 					</section>
 		
 					<audio src={radioStation?.url} ref={audioStream} id="radio-source"></audio>
+
+					<section className="radio-player-rds">
+						<h2>Playing now</h2>
+						<h3>{rdsString}</h3>
+					</section>
 				</section>
 			</>
 		)
