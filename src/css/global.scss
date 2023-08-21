@@ -140,6 +140,15 @@ p {
 
 #radio-source {display: none;}
 
+input[type=number] {
+	-moz-appearance: textfield;
+	appearance: textfield;
+}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
 .radio-player {
 	display: grid;
 	grid-auto-flow: row;
@@ -168,6 +177,7 @@ p {
 	.radio-player-controls {
 		display: flex;
 		flex-direction: row;
+		align-items: center;
 		gap: 32px;
 
 		.radio-player-controls-btn {
@@ -180,9 +190,58 @@ p {
 			&:hover {color: $hoverColor;}
 			&:active {color: $clickColor;}
 		}
-	}
 
-	.radio-player-canvas {
-		width: 75%;
+		#player-volume {
+			accent-color: black;
+			border: none;
+			outline: none;
+		}
+
+		.volume-custom {
+			display: grid;
+			grid-template-rows: repeat(3, auto);
+			justify-items: center;
+			align-items: center;
+
+			#player-volume-numerical {
+				outline: none;
+				border: none;
+				background: none;
+				font-family: 'Ubuntu', sans-serif;
+				width: 40px;
+				height: 32px;
+				padding: 4px;
+				color: white;
+				font-size: 16px;
+				text-align: center;
+
+				grid-row: 2;
+			}
+
+			.player-volume-btn {
+				width: 24px;
+				height: 24px;
+				outline: none;
+				border: none;
+				background: black;
+				color: white;
+				font-size: 16px;
+				border-radius: 8px;
+				cursor: pointer;
+	
+				&:hover {background: $hoverColor; color: black;}
+				&:active {background: $clickColor; color: black;}
+			}
+
+			#volInc {grid-row: 1;}
+			#volDec {grid-row: 3;}
+			@media (min-width: 720px) {
+				#volInc {grid-row: unset;}
+				#volDec {grid-row: unset;}
+				#player-volume-numerical {grid-row: unset;}
+				grid-template-rows: 1fr;
+				grid-template-columns: repeat(3, auto);
+			}
+		}
 	}
 }

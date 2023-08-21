@@ -4,7 +4,8 @@ import { useParams } from "react-router-dom";
 import AppHeader from "./AppHeader";
 import ErrorPage from "./ErrorPage";
 import RDSradioke from "./rds/RDSradioke";
-import RDSfunvlna from "./rds/RDSradiofunvlna";
+import RDSfunvlna from "./rds/RDSradiofunlivevlna";
+import RDSfunother from "./rds/RDSradiofunother";
 
 function RadioPlayer() {
 	function playButton() {
@@ -35,27 +36,55 @@ function RadioPlayer() {
 
 	function handlePlay() {setIsPlaying(true)}
 	function handleStop() {setIsPlaying(false)}
-	function handleVolume(event: React.ChangeEvent<HTMLInputElement>) {setVolume(parseInt(event.target.value))}
+	function handleVolume(event: React.ChangeEvent<HTMLInputElement>) {
+		const newVolume = parseInt((event.target.value).toString());
+		if(isNaN(newVolume) || newVolume < 0) {
+			setVolume(0);
+		} else if(newVolume > 100) {
+			setVolume(100);
+		} else {
+			setVolume(Math.round(newVolume));
+		}
+	}
+	function decreaseVol() {
+		const newVolume = volume - 1;
+		if(newVolume < 0) {
+			setVolume(0)
+		} else setVolume(newVolume);
+	}
+	function increaseVol() {
+		const newVolume = volume + 1;
+		if(newVolume > 100) {
+			setVolume(100)
+		} else setVolume(newVolume);
+	}
 
 	useEffect(() => {
-		if(isPlaying) {
-			audioStream.current?.load();
-			audioStream.current?.play();
-		} else {
-			audioStream.current?.pause();
+		if(audioStream.current) {
+			if(isPlaying) {
+				audioStream.current.load();
+				audioStream.current.play();
+			} else {
+				audioStream.current.pause();
+			}
 		}
 	}, [isPlaying]);
 
 	useEffect(() => {
-		if(audioStream.current) audioStream.current.volume = volume / 100;
+		if(audioStream.current) {
+			audioStream.current.volume = volume / 100;
+		}
 	}, [volume]);
 
 	useEffect(() => {
 		rdsCall();
 		async function rdsCall() {
-			if(radioStation?.id === "funradio" || radioStation?.id === "funczsk" || radioStation?.id === "fundance" || radioStation?.id === "funchill" || radioStation?.id === "radiovlna") {
-				// FunRadio / RadioVlna RDS
+			if(radioStation?.id === "funradio" || radioStation?.id === "radiovlna") {
+				// FunRadio Live / RadioVlna RDS
 				setRdsString(await RDSfunvlna({ rdsUrl: radioStation.rdsUrl }));
+			} else if(radioStation?.id === "funczsk" || radioStation?.id === "fundance" || radioStation?.id === "funchill") {
+				// FunRadio CZSK / Dance / Chill RDS
+				setRdsString(await RDSfunother({ rdsUrl: radioStation.rdsUrl }));
 			} else if(radioStation?.id === "radioke") {
 				// RadioKE RDS
 				setRdsString(await RDSradioke({ rdsUrl: radioStation.rdsUrl }));
@@ -83,10 +112,15 @@ function RadioPlayer() {
 
 					<section className="radio-player-controls">
 						{ isPlaying ? stopButton() : playButton() }
-						<input type="range" value={volume} onChange={handleVolume} id="player-volume"/>
+						<input type="range" value={volume.toString()} onChange={handleVolume} min={0} max={100} step={1} id="player-volume"/>
+						<div className="volume-custom">
+							<button id="volDec" className="player-volume-btn" onClick={decreaseVol}>-</button>
+							<input type="number" value={volume.toString()} onChange={handleVolume} min={0} max={100} step={1} id="player-volume-numerical"/>
+							<button id="volInc" className="player-volume-btn" onClick={increaseVol}>+</button>
+						</div>
 					</section>
 		
-					<audio src={radioStation?.url} ref={audioStream} id="radio-source"></audio>
+					<audio src={radioStation.url} ref={audioStream} id="radio-source"></audio>
 
 					<section className="radio-player-rds">
 						<h2>Playing now</h2>

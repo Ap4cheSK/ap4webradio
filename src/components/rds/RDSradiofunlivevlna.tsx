@@ -2,7 +2,7 @@ interface rdsFormat {
 	rdsUrl: string;
 }
 
-async function RDSfunvlna(rdsUrl: rdsFormat) {
+async function RDSfunlivevlna(rdsUrl: rdsFormat) {
 	const fetchRDS = await fetch(rdsUrl.rdsUrl);
 	const xmlParser = new DOMParser();
 	const rdsParse = xmlParser.parseFromString(await fetchRDS.text(), "text/xml");
@@ -10,4 +10,4 @@ async function RDSfunvlna(rdsUrl: rdsFormat) {
 	return (rdsData);
 }
 
-export default RDSfunvlna;
+export default RDSfunlivevlna;
