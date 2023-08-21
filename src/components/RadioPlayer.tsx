@@ -30,6 +30,7 @@ function RadioPlayer() {
 
 	// Init
 	const audioStream = useRef<HTMLAudioElement>(null);
+	const soundWaveRef = useRef<HTMLDivElement>(null);
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [volume, setVolume] = useState(20);
 	const [rdsString, setRdsString] = useState("");
@@ -59,13 +60,26 @@ function RadioPlayer() {
 		} else setVolume(newVolume);
 	}
 
+	if(soundWaveRef.current) {
+		const bars = soundWaveRef.current.querySelectorAll(".box");
+		bars.forEach(bar => {bar.classList.remove("barplay")})
+	}
+
 	useEffect(() => {
 		if(audioStream.current) {
 			if(isPlaying) {
 				audioStream.current.load();
 				audioStream.current.play();
+				if(soundWaveRef.current) {
+					const bars = soundWaveRef.current.querySelectorAll(".box");
+					bars.forEach(bar => {bar.classList.add("barplay")})
+				}
 			} else {
 				audioStream.current.pause();
+				if(soundWaveRef.current) {
+					const bars = soundWaveRef.current.querySelectorAll(".box");
+					bars.forEach(bar => {bar.classList.remove("barplay")})
+				}
 			}
 		}
 	}, [isPlaying]);
@@ -126,6 +140,14 @@ function RadioPlayer() {
 						<h2>Playing now</h2>
 						<h3>{rdsString}</h3>
 					</section>
+
+					<div id="sound-wave" ref={soundWaveRef}>
+						<div className="box box1"></div>
+						<div className="box box2"></div>
+						<div className="box box3"></div>
+						<div className="box box4"></div>
+						<div className="box box5"></div>
+					</div>
 				</section>
 			</>
 		)
