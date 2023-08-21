@@ -60,14 +60,12 @@ function RadioPlayer() {
 		} else setVolume(newVolume);
 	}
 
-	if(soundWaveRef.current) {
-		const bars = soundWaveRef.current.querySelectorAll(".box");
-		bars.forEach(bar => {bar.classList.remove("barplay")})
-	}
+	if(soundWaveRef.current) console.log("soundwave ready");
 
 	useEffect(() => {
 		if(audioStream.current) {
 			if(isPlaying) {
+				audioStream.current.pause();
 				audioStream.current.load();
 				audioStream.current.play();
 				if(soundWaveRef.current) {

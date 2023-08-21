@@ -2,6 +2,8 @@
 $hoverColor: rgb(220, 220, 220);
 $clickColor: white;
 $activatedColor: red;
+$mainColor: #12E2DC;
+$textShadow: 0px 0px 5px black;
 
 * {
 	margin: 0;
@@ -164,6 +166,11 @@ input::-webkit-outer-spin-button,input::-webkit-inner-spin-button {
 		grid-auto-flow: row;
 		justify-items: center;
 		gap: 8px;
+
+		.radio-player-name {
+			color: $mainColor;
+			text-shadow: $textShadow;
+		}
 
 		.radio-player-avatar {
 			width: 128px;
