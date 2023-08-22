@@ -90,6 +90,7 @@ function RadioPlayer() {
 		}
 	}, [volume]);
 
+	// 
 	useEffect(() => {
 		rdsCall();
 		async function rdsCall() {
@@ -108,9 +109,9 @@ function RadioPlayer() {
 			}
 		}
 
-		const rdsInterval = setInterval(rdsCall, 30000);
+		const rdsInterval = setInterval(rdsCall, 120000);
 		return () => clearInterval(rdsInterval);
-	});
+	}, []);
 
 	// Copy Playing Now to Clipboard
 	function handleCopyNow() {
