@@ -45,6 +45,15 @@
 		"rdsUrl": "https://www.tvkosice.sk/api/playlists/radiokosice?limit=2"
 	},
 	{
+		"id": "radiovlna",
+		"name": "Rádio Vlna",
+		"genre": "Generic",
+		"info": "128 kbps",
+		"url": "https://stream.radiovlna.sk/vlna-hi.mp3",
+		"imgUrl": "https://cdn.radiovlna.sk/img/logo/apple-touch-icon.png",
+		"rdsUrl": "https://cdn.radiovlna.sk/sepia/vlna.xml"
+	},
+	{
 		"id": "radioexpress",
 		"name": "Rádio Expres",
 		"genre": "Generic",
@@ -54,12 +63,12 @@
 		"rdsUrl": ""
 	},
 	{
-		"id": "radiovlna",
-		"name": "Rádio Vlna",
+		"id": "radioeu2sk",
+		"name": "Europa 2 SK",
 		"genre": "Generic",
 		"info": "128 kbps",
-		"url": "https://stream.radiovlna.sk/vlna-hi.mp3",
-		"imgUrl": "https://cdn.radiovlna.sk/img/logo/apple-touch-icon.png",
-		"rdsUrl": "https://cdn.radiovlna.sk/sepia/vlna.xml"
+		"url": "https://stream.bauermedia.sk/europa2-hi.mp3",
+		"imgUrl": "https://www.europa2.sk/wp-content/uploads/2023/05/cropped-favicon-256x256.png?w=256&h=256",
+		"rdsUrl": ""
 	}
 ]
