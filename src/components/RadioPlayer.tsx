@@ -1,6 +1,6 @@
-import radioJsonList from "../assets/radios.json";
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
+import radioJsonList from "../assets/radios.json";
 import AppHeader from "./AppHeader";
 import ErrorPage from "./ErrorPage";
 import RDSradioke from "./rds/RDSradioke";
@@ -60,7 +60,9 @@ function RadioPlayer() {
 		} else setVolume(newVolume);
 	}
 
-	if(soundWaveRef.current) console.log("soundwave ready");
+	if(soundWaveRef.current) {
+		// Don't remove! Will cause not loading soundwave properly.
+	}
 
 	useEffect(() => {
 		if(audioStream.current) {
@@ -110,6 +112,26 @@ function RadioPlayer() {
 		return () => clearInterval(rdsInterval);
 	});
 
+	// Copy Playing Now to Clipboard
+	function handleCopyNow() {
+		const tempTextArea = document.createElement("textarea");
+		tempTextArea.style.position = "fixed";
+		tempTextArea.style.opacity = "0";
+		tempTextArea.value = rdsString;
+		document.body.appendChild(tempTextArea);
+		tempTextArea.select();
+
+		try {
+			const copy = document.execCommand("copy");
+			console.log(copy ? "Playing now copied to clipboard!" : "Copying failed!");
+			alert(copy ? "Playing now copied to clipboard!" : "Copying failed!");
+		} catch(error) {
+			console.error("Unable to copy.", error);
+		}
+
+		document.body.removeChild(tempTextArea);
+	}
+
 	if(radioStation) {
 		return (
 			<>
@@ -136,7 +158,7 @@ function RadioPlayer() {
 
 					<section className="radio-player-rds">
 						<h2>Playing now</h2>
-						<h3>{rdsString}</h3>
+						<h3 className="radio-player-song" onClick={handleCopyNow}>{rdsString}</h3>
 					</section>
 
 					<div id="sound-wave" ref={soundWaveRef}>
