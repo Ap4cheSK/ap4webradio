@@ -111,6 +111,7 @@ function RadioPlayer() {
 
 		const rdsInterval = setInterval(rdsCall, 120000);
 		return () => clearInterval(rdsInterval);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	// Copy Playing Now to Clipboard
