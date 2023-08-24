@@ -64,6 +64,16 @@ function RadioPlayer() {
 		// Don't remove! Will cause not loading soundwave properly.
 	}
 
+	// Get settings from LocalStorage and set them
+	const ls_autoPlay = localStorage.getItem("app_autoplay");
+	const ls_defaultVolume = localStorage.getItem("app_def_vol");
+
+	useEffect(() => {
+		if(ls_defaultVolume) setVolume(parseInt(ls_defaultVolume));
+		if(ls_autoPlay && ls_autoPlay === "true") setIsPlaying(true);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
 	useEffect(() => {
 		if(audioStream.current) {
 			if(isPlaying) {

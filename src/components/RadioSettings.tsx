@@ -1,33 +1,46 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AppHeader from "./AppHeader";
 
 function RadioSettings() {
 	const [autoPlay, setAutoPlay] = useState(false);
 	const [defaultVolume, setDefaultVolume] = useState(20);
 
+	// Get settings from LocalStorage and set them
+	const ls_autoPlay = localStorage.getItem("app_autoplay");
+	const ls_defaultVolume = localStorage.getItem("app_def_vol");
+
+	useEffect(() => {
+		if(ls_defaultVolume) setDefaultVolume(parseInt(ls_defaultVolume));
+		if(ls_autoPlay) {
+			if(ls_autoPlay === "true") setAutoPlay(true);
+			else setAutoPlay(false);
+		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
 	function handleDefaultVolume(event: React.ChangeEvent<HTMLInputElement>) {
 		const newVolume = parseInt((event.target.value).toString());
 		if(isNaN(newVolume) || newVolume < 0) {
 			setDefaultVolume(0);
-			// Cookies.set("radio_def_volume", "0", {expires: 30});
 		} else if(newVolume > 100) {
 			setDefaultVolume(100);
-			// Cookies.set("radio_def_volume", "100", {expires: 30});
 		} else {
 			setDefaultVolume(Math.round(newVolume));
-			// const newVolumeStr = newVolume.toString();
-			// Cookies.set("radio_def_volume", newVolumeStr, {expires: 30});
 		}
 	}
 
 	function handleAutoPlay() {
 		if(autoPlay) {
 			setAutoPlay(false);
-			// Cookies.set("radio_autoplay", "false", {expires: 30});
 		} else {
 			setAutoPlay(true);
-			// Cookies.set("radio_autoplay", "true", {expires: 30});
 		}
+	}
+
+	function handleSave() {
+		localStorage.setItem("app_autoplay", autoPlay.toString());
+		localStorage.setItem("app_def_vol", defaultVolume.toString());
+		alert("Settings saved.");
 	}
 
 	return (
@@ -49,6 +62,8 @@ function RadioSettings() {
 						<input className="settings-range" type="number" min={0} step={1} max={100} onChange={handleDefaultVolume} value={defaultVolume.toString()}/>
 					</div>
 				</section>
+
+				<button className="app-btn" onClick={handleSave}>Save</button>
 			</section>
 		</>
 	);
