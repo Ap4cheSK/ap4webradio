@@ -43,6 +43,14 @@ function RadioSettings() {
 		alert("Settings saved.");
 	}
 
+	function handleReset() {
+		setAutoPlay(false);
+		setDefaultVolume(20);
+		localStorage.removeItem("app_autoplay");
+		localStorage.removeItem("app_def_vol");
+		alert("Settings reset.");
+	}
+
 	return (
 		<>
 			<AppHeader backBtn={true}/>
@@ -64,6 +72,7 @@ function RadioSettings() {
 				</section>
 
 				<button className="app-btn" onClick={handleSave}>Save</button>
+				<button className="app-btn cancel-btn" onClick={handleReset}>Reset</button>
 			</section>
 		</>
 	);
