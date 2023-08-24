@@ -1,7 +1,7 @@
 {
   "name": "ap4webradio",
   "private": true,
-  "version": "2.0.1",
+  "version": "2.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -15,6 +15,7 @@
     "react-router-dom": "^6.15.0"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.3",
     "@types/react": "^18.2.15",
     "@types/react-copy-to-clipboard": "^5.0.4",
     "@types/react-dom": "^18.2.7",

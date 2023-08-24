@@ -128,7 +128,7 @@ function RadioPlayer() {
 			console.log(copy ? "Playing now copied to clipboard!" : "Copying failed!");
 			alert(copy ? "Playing now copied to clipboard!" : "Copying failed!");
 		} catch(error) {
-			console.error("Unable to copy.", error);
+			console.error("Unablen to copy.", error);
 		}
 
 		document.body.removeChild(tempTextArea);
@@ -137,7 +137,7 @@ function RadioPlayer() {
 	if(radioStation) {
 		return (
 			<>
-				<AppHeader/>
+				<AppHeader backBtn={true} settingsBtn={true}/>
 				<section className="radio-player">
 					<section className="radio-player-station">
 						<img className="radio-player-avatar" src={radioStation.imgUrl}/>
