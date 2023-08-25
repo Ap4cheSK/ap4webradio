@@ -61,7 +61,7 @@
 		"info": "128 kbps",
 		"url": "https://stream.bauermedia.sk/europa2-hi.mp3",
 		"imgUrl": "https://www.europa2.sk/wp-content/uploads/2023/05/cropped-favicon-256x256.png?w=256&h=256",
-		"rdsUrl": ""
+		"rdsUrl": "https://www.europa2.sk/wp-json/radio/v1/playlist"
 	},
 	{
 		"id": "radioeu2cz",
@@ -69,6 +69,6 @@
 		"info": "128 kbps",
 		"url": "https://ice.actve.net/fm-evropa2-128",
 		"imgUrl": "https://www.europa2.sk/wp-content/uploads/2023/05/cropped-favicon-256x256.png?w=256&h=256",
-		"rdsUrl": ""
+		"rdsUrl": "https://rds.actve.net/v1/metadata/channel/evropa2"
 	}
 ]

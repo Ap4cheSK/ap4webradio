@@ -6,6 +6,8 @@ import ErrorPage from "./ErrorPage";
 import RDSradioke from "./rds/RDSradioke";
 import RDSfunvlna from "./rds/RDSradiofunlivevlna";
 import RDSfunother from "./rds/RDSradiofunother";
+import RDSradioevropa2 from "./rds/RDSradioevropa2";
+import RDSradioeuropa2 from "./rds/RDSradioeuropa2";
 
 function RadioPlayer() {
 	function playButton() {
@@ -113,6 +115,11 @@ function RadioPlayer() {
 			} else if(radioStation?.id === "radioke") {
 				// RadioKE RDS
 				setRdsString(await RDSradioke({ rdsUrl: radioStation.rdsUrl }));
+			} else if(radioStation?.id === "radioeu2cz") {
+				// Evropa 2 RDS
+				setRdsString(await RDSradioevropa2({ rdsUrl: radioStation.rdsUrl }));
+			} else if(radioStation?.id === "radioeu2sk") {
+				setRdsString(await RDSradioeuropa2({ rdsUrl: radioStation.rdsUrl }));
 			} else {
 				// No RDS
 				setRdsString("RDS Unsupported");
