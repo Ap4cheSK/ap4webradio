@@ -6,7 +6,6 @@ interface radioStationFormat {
 	station: {
 		id: string;
 		name: string;
-		genre: string;
 		info: string;
 		imgUrl: string;
 	}
@@ -19,7 +18,6 @@ function RadioItem(radioStation:radioStationFormat) {
 				<img className="radio-avatar" src={radioStation.station.imgUrl}/>
 				<div>
 					<h2 className="radio-name">{radioStation.station.name}</h2>
-					<h3 className="radio-genre">{radioStation.station.genre}</h3>
 					<p className="radio-info">{radioStation.station.info}</p>
 				</div>
 			</div>
@@ -37,7 +35,6 @@ function RadioList() {
 						{
 							id: station.id,
 							name: station.name,
-							genre: station.genre,
 							info: station.info,
 							imgUrl: station.imgUrl
 						}

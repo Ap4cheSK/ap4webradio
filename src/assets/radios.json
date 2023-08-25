@@ -2,7 +2,6 @@
 	{
 		"id": "funradio",
 		"name": "Fun Rádio",
-		"genre": "Pop",
 		"info": "192 kbps",
 		"url": "https://stream.funradio.sk:18443/fun192.mp3",
 		"imgUrl": "https://www.funradio.sk/img/logo/apple-icon-180x180.png",
@@ -11,7 +10,6 @@
 	{
 		"id": "funczsk",
 		"name": "Fun Rádio CZ/SK",
-		"genre": "CZ/SK",
 		"info": "128 kbps",
 		"url": "https://stream.funradio.sk:18443/cs128.mp3",
 		"imgUrl": "https://www.funradio.sk/img/logo/apple-icon-180x180.png",
@@ -20,7 +18,6 @@
 	{
 		"id": "fundance",
 		"name": "Fun Rádio Get Fun",
-		"genre": "Pop, Dance",
 		"info": "128 kbps",
 		"url": "https://stream.funradio.sk:18000/dance128.mp3",
 		"imgUrl": "https://www.funradio.sk/img/logo/apple-icon-180x180.png",
@@ -29,7 +26,6 @@
 	{
 		"id": "funchill",
 		"name": "Fun Rádio Chill",
-		"genre": "Chill",
 		"info": "128 kbps",
 		"url": "https://stream.funradio.sk:8000/chill128.mp3",
 		"imgUrl": "https://www.funradio.sk/img/logo/apple-icon-180x180.png",
@@ -38,7 +34,6 @@
 	{
 		"id": "radioke",
 		"name": "Rádio Košice",
-		"genre": "Generic",
 		"info": "128 kbps",
 		"url": "http://stream.alternet.sk:8000/radiokosice-128.mp3",
 		"imgUrl": "https://www.radiokosice.sk/favicon-196x196.png",
@@ -47,7 +42,6 @@
 	{
 		"id": "radiovlna",
 		"name": "Rádio Vlna",
-		"genre": "Generic",
 		"info": "128 kbps",
 		"url": "https://stream.radiovlna.sk/vlna-hi.mp3",
 		"imgUrl": "https://cdn.radiovlna.sk/img/logo/apple-touch-icon.png",
@@ -56,7 +50,6 @@
 	{
 		"id": "radioexpress",
 		"name": "Rádio Expres",
-		"genre": "Generic",
 		"info": "128 kbps",
 		"url": "https://stream.bauermedia.sk/128.mp3",
 		"imgUrl": "https://www.expres.sk/wp-content/uploads/2015/06/cropped-favicon-1-256x256.png",
@@ -65,7 +58,6 @@
 	{
 		"id": "radioeu2sk",
 		"name": "Europa 2",
-		"genre": "Generic",
 		"info": "128 kbps",
 		"url": "https://stream.bauermedia.sk/europa2-hi.mp3",
 		"imgUrl": "https://www.europa2.sk/wp-content/uploads/2023/05/cropped-favicon-256x256.png?w=256&h=256",
@@ -74,7 +66,6 @@
 	{
 		"id": "radioeu2cz",
 		"name": "Evropa 2",
-		"genre": "Generic",
 		"info": "128 kbps",
 		"url": "https://ice.actve.net/fm-evropa2-128",
 		"imgUrl": "https://www.europa2.sk/wp-content/uploads/2023/05/cropped-favicon-256x256.png?w=256&h=256",

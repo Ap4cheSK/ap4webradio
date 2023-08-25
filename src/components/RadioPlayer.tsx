@@ -152,7 +152,6 @@ function RadioPlayer() {
 					<section className="radio-player-station">
 						<img className="radio-player-avatar" src={radioStation.imgUrl}/>
 						<h2 className="radio-player-name">{radioStation.name}</h2>
-						<h3 className="radio-player-genre">{radioStation.genre}</h3>
 						<p className="radio-player-info">{radioStation.info}</p>
 					</section>
 
