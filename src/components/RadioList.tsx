@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import radioJsonList from "../assets/radios.json";
 import AppHeader from "./AppHeader";
@@ -26,6 +27,13 @@ function RadioItem(radioStation:radioStationFormat) {
 }
 
 function RadioList() {
+	const [useDataSaving, setUseDataSaving] = useState(false);
+	
+	useEffect(() => {
+		const ls_dataSaving = localStorage.getItem("app_data_saving");
+		if(ls_dataSaving && ls_dataSaving === "true") setUseDataSaving(true);
+	}, []);
+
 	return (
 		<>
 			<AppHeader settingsBtn={true}/>
@@ -38,7 +46,7 @@ function RadioList() {
 							{
 								id: station.id,
 								name: station.name,
-								info: station.info,
+								info: useDataSaving ? station.lowInfo : station.highInfo,
 								imgUrl: station.imgUrl
 							}
 						}/>
@@ -53,7 +61,7 @@ function RadioList() {
 							{
 								id: station.id,
 								name: station.name,
-								info: station.info,
+								info: useDataSaving ? station.lowInfo : station.highInfo,
 								imgUrl: station.imgUrl
 							}
 						}/>

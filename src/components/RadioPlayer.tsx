@@ -35,6 +35,13 @@ function RadioPlayer() {
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [volume, setVolume] = useState(20);
 	const [rdsString, setRdsString] = useState("");
+	const [useDataSaving, setUseDataSaving] = useState(false);
+
+	// Get LocalStorage data-saving-mode
+	useEffect(() => {
+		const ls_dataSaving = localStorage.getItem("app_data_saving");
+		if(ls_dataSaving && ls_dataSaving === "true") setUseDataSaving(true);
+	}, [])
 
 	function handlePlay() {setIsPlaying(true)}
 	function handleStop() {setIsPlaying(false)}
@@ -155,7 +162,7 @@ function RadioPlayer() {
 				<section className="radio-player-station">
 					<img className="radio-player-avatar" src={radioStation.imgUrl}/>
 					<h2 className="radio-player-name">{radioStation.name}</h2>
-					<p className="radio-player-info">{radioStation.info}</p>
+					<p className="radio-player-info">{useDataSaving ? radioStation.lowInfo : radioStation.highInfo}</p>
 				</section>
 
 				<section className="radio-player-controls">
@@ -168,7 +175,7 @@ function RadioPlayer() {
 					</div>
 				</section>
 	
-				<audio src={radioStation.url} ref={audioStream} id="radio-source"></audio>
+				<audio src={useDataSaving ? radioStation.lowUrl : radioStation.highUrl} ref={audioStream} id="radio-source"></audio>
 
 				<section className="radio-player-rds">
 					<h2>Playing now</h2>
