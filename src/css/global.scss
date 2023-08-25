@@ -131,6 +131,11 @@ h1,h2,h3 {text-align: center;}
 	@media (min-width: 1280px) {grid-template-columns: repeat(3, 1fr);}
 }
 
+.radio-list-group {
+	color: $mainColor;
+	text-shadow: $shadow;
+}
+
 // Radio Banner
 
 .radio-item {

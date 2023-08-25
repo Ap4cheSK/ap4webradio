@@ -30,7 +30,7 @@ function RadioList() {
 		<>
 			<AppHeader settingsBtn={true}/>
 			<section>
-				<h2>RDS Supported</h2>
+				<h2 className="radio-list-group">RDS Supported</h2>
 				<section className="radio-list">
 					{radioJsonList.map(station => (
 						station.rdsUrl ?
@@ -45,7 +45,7 @@ function RadioList() {
 						: ""
 					))}
 				</section>
-				<h2>RDS Unsupported</h2>
+				<h2 className="radio-list-group">RDS Unsupported</h2>
 				<section className="radio-list">
 					{radioJsonList.map(station => (
 						!station.rdsUrl ?
