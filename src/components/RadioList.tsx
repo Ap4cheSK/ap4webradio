@@ -29,17 +29,37 @@ function RadioList() {
 	return (
 		<>
 			<AppHeader settingsBtn={true}/>
-			<section className="radio-list">
-				{radioJsonList.map(station => (
-					<RadioItem key={station.id} station={
-						{
-							id: station.id,
-							name: station.name,
-							info: station.info,
-							imgUrl: station.imgUrl
-						}
-					}/>
-				))}
+			<section>
+				<h2>RDS Supported</h2>
+				<section className="radio-list">
+					{radioJsonList.map(station => (
+						station.rdsUrl ?
+						<RadioItem key={station.id} station={
+							{
+								id: station.id,
+								name: station.name,
+								info: station.info,
+								imgUrl: station.imgUrl
+							}
+						}/>
+						: ""
+					))}
+				</section>
+				<h2>RDS Unsupported</h2>
+				<section className="radio-list">
+					{radioJsonList.map(station => (
+						!station.rdsUrl ?
+						<RadioItem key={station.id} station={
+							{
+								id: station.id,
+								name: station.name,
+								info: station.info,
+								imgUrl: station.imgUrl
+							}
+						}/>
+						: ""
+					))}
+				</section>
 			</section>
 		</>
 	);
