@@ -53,7 +53,7 @@
 		"info": "128 kbps",
 		"url": "https://stream.bauermedia.sk/128.mp3",
 		"imgUrl": "https://www.expres.sk/wp-content/uploads/2015/06/cropped-favicon-1-256x256.png",
-		"rdsUrl": ""
+		"rdsUrl": "https://www.expres.sk/wp-json/expres/v1/playlist"
 	},
 	{
 		"id": "radioeu2sk",

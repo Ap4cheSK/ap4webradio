@@ -8,6 +8,7 @@ import RDSfunvlna from "./rds/RDSradiofunlivevlna";
 import RDSfunother from "./rds/RDSradiofunother";
 import RDSradioevropa2 from "./rds/RDSradioevropa2";
 import RDSradioeuropa2 from "./rds/RDSradioeuropa2";
+import RDSradioexpres from "./rds/RDSradioexpres";
 
 function RadioPlayer() {
 	function playButton() {
@@ -119,7 +120,11 @@ function RadioPlayer() {
 				// Evropa 2 RDS
 				setRdsString(await RDSradioevropa2({ rdsUrl: radioStation.rdsUrl }));
 			} else if(radioStation?.id === "radioeu2sk") {
+				// Europa 2 RDS
 				setRdsString(await RDSradioeuropa2({ rdsUrl: radioStation.rdsUrl }));
+			} else if(radioStation?.id === "radioexpress") {
+				// Radio Expres RDS
+				setRdsString(await RDSradioexpres({ rdsUrl: radioStation.rdsUrl }));
 			} else {
 				// No RDS
 				setRdsString("RDS Unsupported");
