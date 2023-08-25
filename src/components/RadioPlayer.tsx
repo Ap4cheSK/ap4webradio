@@ -64,6 +64,16 @@ function RadioPlayer() {
 		// Don't remove! Will cause not loading soundwave properly.
 	}
 
+	// Get settings from LocalStorage and set them
+	const ls_autoPlay = localStorage.getItem("app_autoplay");
+	const ls_defaultVolume = localStorage.getItem("app_def_vol");
+
+	useEffect(() => {
+		if(ls_defaultVolume) setVolume(parseInt(ls_defaultVolume));
+		if(ls_autoPlay && ls_autoPlay === "true") setIsPlaying(true);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
 	useEffect(() => {
 		if(audioStream.current) {
 			if(isPlaying) {
@@ -90,6 +100,7 @@ function RadioPlayer() {
 		}
 	}, [volume]);
 
+	// 
 	useEffect(() => {
 		rdsCall();
 		async function rdsCall() {
@@ -108,9 +119,10 @@ function RadioPlayer() {
 			}
 		}
 
-		const rdsInterval = setInterval(rdsCall, 30000);
+		const rdsInterval = setInterval(rdsCall, 120000);
 		return () => clearInterval(rdsInterval);
-	});
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	// Copy Playing Now to Clipboard
 	function handleCopyNow() {
@@ -126,7 +138,7 @@ function RadioPlayer() {
 			console.log(copy ? "Playing now copied to clipboard!" : "Copying failed!");
 			alert(copy ? "Playing now copied to clipboard!" : "Copying failed!");
 		} catch(error) {
-			console.error("Unable to copy.", error);
+			console.error("Unablen to copy.", error);
 		}
 
 		document.body.removeChild(tempTextArea);
@@ -135,7 +147,7 @@ function RadioPlayer() {
 	if(radioStation) {
 		return (
 			<>
-				<AppHeader/>
+				<AppHeader backBtn={true} settingsBtn={true}/>
 				<section className="radio-player">
 					<section className="radio-player-station">
 						<img className="radio-player-avatar" src={radioStation.imgUrl}/>

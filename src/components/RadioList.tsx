@@ -30,7 +30,7 @@ function RadioItem(radioStation:radioStationFormat) {
 function RadioList() {
 	return (
 		<>
-			<AppHeader/>
+			<AppHeader settingsBtn={true}/>
 			<section className="radio-list">
 				{radioJsonList.map(station => (
 					<RadioItem key={station.id} station={
