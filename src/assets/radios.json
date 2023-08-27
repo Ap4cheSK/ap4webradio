@@ -98,5 +98,15 @@
 		"highUrl": "https://stream.bauermedia.sk/melody-hi.mp3",
 		"imgUrl": "https://www.radiomelody.sk/wp-content/uploads/2023/01/cropped-radio-melody-favicon-1-256x256.png?w=256&h=256",
 		"rdsUrl": ""
+	},
+	{
+		"id": "radiobestfm",
+		"name": "Rádio Best.FM",
+		"lowInfo": "64 kbps",
+		"highInfo": "128 kbps",
+		"lowUrl": "http://stream2.bestfm.sk/64.mp3",
+		"highUrl": "http://stream2.bestfm.sk/128.mp3",
+		"imgUrl": "http://www.bestfm.sk/favicon.ico",
+		"rdsUrl": ""
 	}
 ]
