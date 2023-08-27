@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import radioJsonList from "../assets/radios.json";
 import AppHeader from "./AppHeader";
 import noImage from "../assets/noimage.jpg";
-import { useTranslation } from "react-i18next";
+import AppFooter from "./AppFooter";
 
 interface radioStationFormat {
 	station: {
@@ -72,6 +73,7 @@ function RadioList() {
 					))}
 				</section>
 			</section>
+			<AppFooter/>
 		</>
 	);
 }

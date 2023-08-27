@@ -18,7 +18,7 @@ html {scroll-behavior: smooth;}
 #root {
 	min-height: 100vh;
 	display: grid;
-	grid-template-rows: auto 1fr;
+	grid-template-rows: auto 1fr auto;
 	gap: 16px;
 	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
@@ -83,6 +83,43 @@ select {
 			transition: .2s;
 		}
 		&:hover svg {transform: rotate(-180deg) scale(1.2);}
+	}
+}
+
+// Footer
+
+.app-footer {
+	display: grid;
+	grid-auto-flow: row;
+	justify-content: center;
+	padding: 8px;
+	gap: 16px;
+	backdrop-filter: brightness(50%);
+	box-shadow: 0px 0px 5px black;
+
+	.footer-contact {
+		.discord-icon {width: 32px;}
+		p {padding-bottom: 4px;}
+		.discord-icon, p {color: white;}
+		display: flex;
+		justify-content: center;
+		flex-direction: row;
+		gap: 4px;
+	}
+
+	.footer-pp {
+		display: grid;
+		justify-content: center;
+		h3 {
+			color: white;
+			&:hover {text-decoration: underline;}
+		}
+	}
+
+	@media(min-width: 720px) {
+		grid-auto-flow: unset;
+		grid-template-columns: repeat(3, 1fr);
+		.footer-contact {justify-content: left;}
 	}
 }
 
@@ -167,39 +204,17 @@ h1,h2,h3 {text-align: center;}
 	h2, h3, p {color: black;}
 	
 	@media (max-width: 720px) {
-		.radio-genre, .radio-info {
-			height: 0;
-			opacity: 0;
-		}
 		.radio-avatar {
-			max-height: 32px;
-			max-width: 32px;
-			height: 32px;
-			width: 32px;
+			max-height: 48px;
+			max-width: 48px;
+			height: 48px;
+			width: 48px;
 		}
 	}
 
 	&:hover, &:active {
 		border: 1px solid white;
 		background: rgba(white, $alpha: 0.1);
-
-		@media (max-width: 720px) {
-			.radio-genre, .radio-info {
-				animation: radioinfo-on ease-in-out 1s forwards;
-				animation-iteration-count: 1;
-			}
-			.radio-avatar {
-				max-height: 64px;
-				max-width: 64px;
-				height: 64px;
-				width: 64px;
-			}
-		}
-	}
-
-	@keyframes radioinfo-on {
-		0% {height: 0; opacity: 0;}
-		100% {height: 100%; opacity: 1;}
 	}
 }
 
@@ -422,4 +437,17 @@ h1,h2,h3 {text-align: center;}
 .active-switch {
 	.settings-switch-indicator {transform: translateX(24px) !important;}
 	background: rgb(0, 200, 0) !important;
+}
+
+// Privacy policy
+
+.privacy-policy {
+	text-align: center !important;
+	display: grid;
+	grid-auto-flow: row;
+	gap: 16px;
+	align-content: start;
+	padding: 8px;
+	p {color: white;}
+	b {color: $mainColor;}
 }
