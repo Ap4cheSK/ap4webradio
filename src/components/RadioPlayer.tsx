@@ -7,6 +7,7 @@ import RDSradioke from "./rds/RDSradioke";
 import RDSfunvlna from "./rds/RDSradiofunlivevlna";
 import RDSfunother from "./rds/RDSradiofunother";
 import RDSradioevropa2 from "./rds/RDSradioevropa2";
+import noImage from "../assets/noimage.jpg";
 
 function RadioPlayer() {
 	function playButton() {
@@ -160,7 +161,7 @@ function RadioPlayer() {
 			<AppHeader backBtn={true} settingsBtn={true}/>
 			<section className="radio-player">
 				<section className="radio-player-station">
-					<img className="radio-player-avatar" src={radioStation.imgUrl}/>
+					<img className="radio-player-avatar" src={radioStation.imgUrl ? radioStation.imgUrl : noImage}/>
 					<h2 className="radio-player-name">{radioStation.name}</h2>
 					<p className="radio-player-info">{useDataSaving ? radioStation.lowInfo : radioStation.highInfo}</p>
 				</section>

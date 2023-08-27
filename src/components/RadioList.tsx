@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import radioJsonList from "../assets/radios.json";
 import AppHeader from "./AppHeader";
+import noImage from "../assets/noimage.jpg";
 
 interface radioStationFormat {
 	station: {
@@ -16,7 +17,7 @@ function RadioItem(radioStation:radioStationFormat) {
 	return (
 		<Link to={"/radioweb/radio/" + radioStation.station.id}>
 			<div className="radio-item">
-				<img className="radio-avatar" src={radioStation.station.imgUrl}/>
+				<img className="radio-avatar" src={radioStation.station.imgUrl ? radioStation.station.imgUrl : noImage}/>
 				<div>
 					<h2 className="radio-name">{radioStation.station.name}</h2>
 					<p className="radio-info">{radioStation.station.info}</p>
