@@ -1,0 +1,15 @@
+{
+    "settings_header": "Nastavení",
+    "stg_lang": "Jazyk",
+    "stg_autoplay": "Automatické spouštení",
+    "stg_datasave": "Režim šetření dat",
+    "stg_defvol": "Výchozí hlasitost",
+    "stg_save": "Uložit",
+    "stg_reset": "Resetovat",
+    "rds_supp": "RDS Podporováno",
+    "rds_unsupp": "RDS Nepodporováno",
+    "playing_now": "Právě hraje",
+    "err_noradio": "Radio nenalezeno",
+    "errheader": "Něco se pokazilo...",
+    "errline": "Chyba:"
+}

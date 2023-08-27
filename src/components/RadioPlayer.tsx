@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import radioJsonList from "../assets/radios.json";
 import AppHeader from "./AppHeader";
 import ErrorPage from "./ErrorPage";
@@ -37,6 +38,7 @@ function RadioPlayer() {
 	const [volume, setVolume] = useState(20);
 	const [rdsString, setRdsString] = useState("");
 	const [useDataSaving, setUseDataSaving] = useState(false);
+	const { t } = useTranslation();
 
 	// Get LocalStorage data-saving-mode
 	useEffect(() => {
@@ -127,7 +129,7 @@ function RadioPlayer() {
 				setRdsString(await RDSradioevropa2({ rdsUrl: radioStation.rdsUrl }));
 			} else {
 				// No RDS
-				setRdsString("RDS Unsupported");
+				setRdsString(t("rds_unsupp"));
 			}
 		}
 
@@ -179,7 +181,7 @@ function RadioPlayer() {
 				<audio src={useDataSaving ? radioStation.lowUrl : radioStation.highUrl} ref={audioStream} id="radio-source"></audio>
 
 				<section className="radio-player-rds">
-					<h2>Playing now</h2>
+					<h2>{t("playing_now")}</h2>
 					<h3 className="radio-player-song" onClick={handleCopyNow}>{rdsString}</h3>
 				</section>
 
@@ -195,7 +197,7 @@ function RadioPlayer() {
 	}
 
 	return (
-		<ErrorPage error="Radio Not Found"/>
+		<ErrorPage error={t("err_noradio")}/>
 	);
 }
 

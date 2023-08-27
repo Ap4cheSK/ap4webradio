@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import radioJsonList from "../assets/radios.json";
 import AppHeader from "./AppHeader";
 import noImage from "../assets/noimage.jpg";
+import { useTranslation } from "react-i18next";
 
 interface radioStationFormat {
 	station: {
@@ -29,6 +30,7 @@ function RadioItem(radioStation:radioStationFormat) {
 
 function RadioList() {
 	const [useDataSaving, setUseDataSaving] = useState(false);
+	const { t } = useTranslation();
 	
 	useEffect(() => {
 		const ls_dataSaving = localStorage.getItem("app_data_saving");
@@ -39,7 +41,7 @@ function RadioList() {
 		<>
 			<AppHeader settingsBtn={true}/>
 			<section>
-				<h2 className="radio-list-group">RDS Supported</h2>
+				<h2 className="radio-list-group">{t("rds_supp")}</h2>
 				<section className="radio-list">
 					{radioJsonList.map(station => (
 						station.rdsUrl ?
@@ -54,7 +56,7 @@ function RadioList() {
 						: ""
 					))}
 				</section>
-				<h2 className="radio-list-group">RDS Unsupported</h2>
+				<h2 className="radio-list-group">{t("rds_unsupp")}</h2>
 				<section className="radio-list">
 					{radioJsonList.map(station => (
 						!station.rdsUrl ?
