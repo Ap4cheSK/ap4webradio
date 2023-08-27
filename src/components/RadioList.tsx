@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import radioJsonList from "../assets/radios.json";
 import AppHeader from "./AppHeader";
@@ -6,7 +7,6 @@ interface radioStationFormat {
 	station: {
 		id: string;
 		name: string;
-		genre: string;
 		info: string;
 		imgUrl: string;
 	}
@@ -19,7 +19,6 @@ function RadioItem(radioStation:radioStationFormat) {
 				<img className="radio-avatar" src={radioStation.station.imgUrl}/>
 				<div>
 					<h2 className="radio-name">{radioStation.station.name}</h2>
-					<h3 className="radio-genre">{radioStation.station.genre}</h3>
 					<p className="radio-info">{radioStation.station.info}</p>
 				</div>
 			</div>
@@ -28,21 +27,47 @@ function RadioItem(radioStation:radioStationFormat) {
 }
 
 function RadioList() {
+	const [useDataSaving, setUseDataSaving] = useState(false);
+	
+	useEffect(() => {
+		const ls_dataSaving = localStorage.getItem("app_data_saving");
+		if(ls_dataSaving && ls_dataSaving === "true") setUseDataSaving(true);
+	}, []);
+
 	return (
 		<>
 			<AppHeader settingsBtn={true}/>
-			<section className="radio-list">
-				{radioJsonList.map(station => (
-					<RadioItem key={station.id} station={
-						{
-							id: station.id,
-							name: station.name,
-							genre: station.genre,
-							info: station.info,
-							imgUrl: station.imgUrl
-						}
-					}/>
-				))}
+			<section>
+				<h2 className="radio-list-group">RDS Supported</h2>
+				<section className="radio-list">
+					{radioJsonList.map(station => (
+						station.rdsUrl ?
+						<RadioItem key={station.id} station={
+							{
+								id: station.id,
+								name: station.name,
+								info: useDataSaving ? station.lowInfo : station.highInfo,
+								imgUrl: station.imgUrl
+							}
+						}/>
+						: ""
+					))}
+				</section>
+				<h2 className="radio-list-group">RDS Unsupported</h2>
+				<section className="radio-list">
+					{radioJsonList.map(station => (
+						!station.rdsUrl ?
+						<RadioItem key={station.id} station={
+							{
+								id: station.id,
+								name: station.name,
+								info: useDataSaving ? station.lowInfo : station.highInfo,
+								imgUrl: station.imgUrl
+							}
+						}/>
+						: ""
+					))}
+				</section>
 			</section>
 		</>
 	);

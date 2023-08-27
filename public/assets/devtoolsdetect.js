@@ -1,0 +1,2 @@
+console.info("Hmmm, vieš otvoriť konzolu. Ak chceš pomôcť s vývojom, kontaktuj ma na discorde: 'ap4chesk'");
+console.warn("Ak ti niekto poradil, aby si otvoril konzolu a zadal kód, jedná sa o SCAM! > self-XSS SCAM");

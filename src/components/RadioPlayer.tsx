@@ -6,6 +6,7 @@ import ErrorPage from "./ErrorPage";
 import RDSradioke from "./rds/RDSradioke";
 import RDSfunvlna from "./rds/RDSradiofunlivevlna";
 import RDSfunother from "./rds/RDSradiofunother";
+import RDSradioevropa2 from "./rds/RDSradioevropa2";
 
 function RadioPlayer() {
 	function playButton() {
@@ -34,6 +35,13 @@ function RadioPlayer() {
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [volume, setVolume] = useState(20);
 	const [rdsString, setRdsString] = useState("");
+	const [useDataSaving, setUseDataSaving] = useState(false);
+
+	// Get LocalStorage data-saving-mode
+	useEffect(() => {
+		const ls_dataSaving = localStorage.getItem("app_data_saving");
+		if(ls_dataSaving && ls_dataSaving === "true") setUseDataSaving(true);
+	}, [])
 
 	function handlePlay() {setIsPlaying(true)}
 	function handleStop() {setIsPlaying(false)}
@@ -113,6 +121,9 @@ function RadioPlayer() {
 			} else if(radioStation?.id === "radioke") {
 				// RadioKE RDS
 				setRdsString(await RDSradioke({ rdsUrl: radioStation.rdsUrl }));
+			} else if(radioStation?.id === "radioeu2cz") {
+				// Evropa 2 RDS
+				setRdsString(await RDSradioevropa2({ rdsUrl: radioStation.rdsUrl }));
 			} else {
 				// No RDS
 				setRdsString("RDS Unsupported");
@@ -145,44 +156,41 @@ function RadioPlayer() {
 	}
 
 	if(radioStation) {
-		return (
-			<>
-				<AppHeader backBtn={true} settingsBtn={true}/>
-				<section className="radio-player">
-					<section className="radio-player-station">
-						<img className="radio-player-avatar" src={radioStation.imgUrl}/>
-						<h2 className="radio-player-name">{radioStation.name}</h2>
-						<h3 className="radio-player-genre">{radioStation.genre}</h3>
-						<p className="radio-player-info">{radioStation.info}</p>
-					</section>
+		return (<>
+			<AppHeader backBtn={true} settingsBtn={true}/>
+			<section className="radio-player">
+				<section className="radio-player-station">
+					<img className="radio-player-avatar" src={radioStation.imgUrl}/>
+					<h2 className="radio-player-name">{radioStation.name}</h2>
+					<p className="radio-player-info">{useDataSaving ? radioStation.lowInfo : radioStation.highInfo}</p>
+				</section>
 
-					<section className="radio-player-controls">
-						{ isPlaying ? stopButton() : playButton() }
-						<input type="range" value={volume.toString()} onChange={handleVolume} min={0} max={100} step={1} id="player-volume"/>
-						<div className="volume-custom">
-							<button id="volDec" className="player-volume-btn" onClick={decreaseVol}>-</button>
-							<input type="number" value={volume.toString()} onChange={handleVolume} min={0} max={100} step={1} id="player-volume-numerical"/>
-							<button id="volInc" className="player-volume-btn" onClick={increaseVol}>+</button>
-						</div>
-					</section>
-		
-					<audio src={radioStation.url} ref={audioStream} id="radio-source"></audio>
-
-					<section className="radio-player-rds">
-						<h2>Playing now</h2>
-						<h3 className="radio-player-song" onClick={handleCopyNow}>{rdsString}</h3>
-					</section>
-
-					<div id="sound-wave" ref={soundWaveRef}>
-						<div className="box box1"></div>
-						<div className="box box2"></div>
-						<div className="box box3"></div>
-						<div className="box box4"></div>
-						<div className="box box5"></div>
+				<section className="radio-player-controls">
+					{ isPlaying ? stopButton() : playButton() }
+					<input type="range" value={volume.toString()} onChange={handleVolume} min={0} max={100} step={1} id="player-volume"/>
+					<div className="volume-custom">
+						<button id="volDec" className="player-volume-btn" onClick={decreaseVol}>-</button>
+						<input type="number" value={volume.toString()} onChange={handleVolume} min={0} max={100} step={1} id="player-volume-numerical"/>
+						<button id="volInc" className="player-volume-btn" onClick={increaseVol}>+</button>
 					</div>
 				</section>
-			</>
-		)
+	
+				<audio src={useDataSaving ? radioStation.lowUrl : radioStation.highUrl} ref={audioStream} id="radio-source"></audio>
+
+				<section className="radio-player-rds">
+					<h2>Playing now</h2>
+					<h3 className="radio-player-song" onClick={handleCopyNow}>{rdsString}</h3>
+				</section>
+
+				<div id="sound-wave" ref={soundWaveRef}>
+					<div className="box box1"></div>
+					<div className="box box2"></div>
+					<div className="box box3"></div>
+					<div className="box box4"></div>
+					<div className="box box5"></div>
+				</div>
+			</section>
+		</>)
 	}
 
 	return (
