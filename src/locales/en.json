@@ -1,0 +1,15 @@
+{
+	"settings_header": "Settings",
+	"stg_lang": "Language",
+	"stg_autoplay": "Auto-Play radio stream",
+	"stg_datasave": "Data-saving mode",
+	"stg_defvol": "Default volume",
+	"stg_save": "Save",
+	"stg_reset": "Reset",
+	"rds_supp": "RDS Supported",
+	"rds_unsupp": "RDS Unsupported",
+	"playing_now": "Playing Now",
+	"err_noradio": "Radio not Found",
+	"errheader": "Something went wrong...",
+	"errline": "Error:"
+}

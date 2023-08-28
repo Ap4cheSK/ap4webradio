@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import AppHeader from "./AppHeader";
 
 function RadioSettings() {
 	const [autoPlay, setAutoPlay] = useState(false);
 	const [dataSaving, setDataSaving] = useState(false);
-	const [defaultVolume, setDefaultVolume] = useState(20);
+	const [language, setLanguage] = useState("en");
+	const { i18n, t } = useTranslation();
 
 	// Get settings from LocalStorage and set them
 	const ls_autoPlay = localStorage.getItem("app_autoplay");
-	const ls_defaultVolume = localStorage.getItem("app_def_vol");
 	const ls_dataSaving = localStorage.getItem("app_data_saving");
+	const ls_lang = localStorage.getItem("app_lang");
 
+	// Handle LocalStorage
 	useEffect(() => {
-		if(ls_defaultVolume) setDefaultVolume(parseInt(ls_defaultVolume));
 		if(ls_autoPlay) {
 			if(ls_autoPlay === "true") setAutoPlay(true);
 			else setAutoPlay(false);
@@ -21,20 +23,11 @@ function RadioSettings() {
 			if(ls_dataSaving === "true") setDataSaving(true);
 			else setDataSaving(false);
 		}
+		if(ls_lang) setLanguage(ls_lang);
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-	function handleDefaultVolume(event: React.ChangeEvent<HTMLInputElement>) {
-		const newVolume = parseInt((event.target.value).toString());
-		if(isNaN(newVolume) || newVolume < 0) {
-			setDefaultVolume(0);
-		} else if(newVolume > 100) {
-			setDefaultVolume(100);
-		} else {
-			setDefaultVolume(Math.round(newVolume));
-		}
-	}
-
+	// Handle settings
 	function handleAutoPlay() {
 		if(autoPlay) {
 			setAutoPlay(false);
@@ -51,20 +44,28 @@ function RadioSettings() {
 		}
 	}
 
+	function handleLanguageSwitch(event: React.ChangeEvent<HTMLSelectElement>) {
+		setLanguage(event.target.value);
+	}
+
+	// Save and reset
 	function handleSave() {
 		localStorage.setItem("app_autoplay", autoPlay.toString());
-		localStorage.setItem("app_def_vol", defaultVolume.toString());
 		localStorage.setItem("app_data_saving", dataSaving.toString());
+		localStorage.setItem("app_lang", language);
+		i18n.changeLanguage(language);
 		alert("Settings saved.");
 	}
 
 	function handleReset() {
 		setAutoPlay(false);
-		setDefaultVolume(20);
 		setDataSaving(false);
+		setLanguage("en");
 		localStorage.removeItem("app_autoplay");
 		localStorage.removeItem("app_def_vol");
 		localStorage.removeItem("app_data_saving");
+		localStorage.removeItem("app_lang");
+		i18n.changeLanguage(language);
 		alert("Settings reset.");
 	}
 
@@ -72,31 +73,40 @@ function RadioSettings() {
 		<>
 			<AppHeader backBtn={true}/>
 			<section className="radio-settings">
-				<h2 className="page-header">Radio Player Settings</h2>
+				<h2 className="page-header">{t("settings_header")}</h2>
 
 				<section className="settings-list">
 					<div className="settings-item">
-						<p>Auto-Play radio stream</p>
+						<p>{t("stg_lang")}</p>
+						<select className="settings-lang-selector" value={language} onChange={handleLanguageSwitch}>
+							<option value="en">English</option>
+							<option value="sk">Slovenčina</option>
+							<option value="cz">Čeština</option>
+						</select>
+					</div>
+
+					<div className="settings-item">
+						<p>{t("stg_autoplay")}</p>
 						<div className={autoPlay ? "settings-switch active-switch" : "settings-switch"} onClick={handleAutoPlay}>
 							<div className="settings-switch-indicator"></div>
 						</div>
 					</div>
 
 					<div className="settings-item">
-						<p>Data-saving mode</p>
+						<p>{t("stg_datasave")}</p>
 						<div className={dataSaving ? "settings-switch active-switch" : "settings-switch"} onClick={handleDataSaving}>
 							<div className="settings-switch-indicator"></div>
 						</div>
 					</div>
 
-					<div className="settings-item">
-						<p>Default volume</p>
+					{/* <div className="settings-item">
+						<p>{t("stg_defvol")}</p>
 						<input className="settings-range" type="number" min={0} step={1} max={100} onChange={handleDefaultVolume} value={defaultVolume.toString()}/>
-					</div>
+					</div> */}
 				</section>
 
-				<button className="app-btn" onClick={handleSave}>Save</button>
-				<button className="app-btn cancel-btn" onClick={handleReset}>Reset</button>
+				<button className="app-btn" onClick={handleSave}>{t("stg_save")}</button>
+				<button className="app-btn cancel-btn" onClick={handleReset}>{t("stg_reset")}</button>
 			</section>
 		</>
 	);
