@@ -57,18 +57,21 @@ function RadioPlayer() {
 		} else {
 			setVolume(Math.round(newVolume));
 		}
+		localStorage.setItem("app_def_vol", volume.toString());
 	}
 	function decreaseVol() {
 		const newVolume = volume - 1;
 		if(newVolume < 0) {
 			setVolume(0)
 		} else setVolume(newVolume);
+		localStorage.setItem("app_def_vol", volume.toString());
 	}
 	function increaseVol() {
 		const newVolume = volume + 1;
 		if(newVolume > 100) {
 			setVolume(100)
 		} else setVolume(newVolume);
+		localStorage.setItem("app_def_vol", volume.toString());
 	}
 
 	if(soundWaveRef.current) {
