@@ -4,7 +4,7 @@ import AppFooter from "./AppFooter";
 function PrivacyPolicy() {
 	return (
 		<>
-			<AppHeader backBtn={true} settingsBtn={true}/>
+			<AppHeader homeBtn={true} settingsBtn={true}/>
 
 			<section className="privacy-policy">
 				<h2 className="page-header">Privacy Policy</h2>

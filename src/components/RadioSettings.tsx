@@ -71,7 +71,7 @@ function RadioSettings() {
 
 	return (
 		<>
-			<AppHeader backBtn={true}/>
+			<AppHeader homeBtn={true}/>
 			<section className="radio-settings">
 				<h2 className="page-header">{t("settings_header")}</h2>
 
@@ -98,11 +98,6 @@ function RadioSettings() {
 							<div className="settings-switch-indicator"></div>
 						</div>
 					</div>
-
-					{/* <div className="settings-item">
-						<p>{t("stg_defvol")}</p>
-						<input className="settings-range" type="number" min={0} step={1} max={100} onChange={handleDefaultVolume} value={defaultVolume.toString()}/>
-					</div> */}
 				</section>
 
 				<button className="app-btn" onClick={handleSave}>{t("stg_save")}</button>

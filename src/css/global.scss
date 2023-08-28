@@ -82,8 +82,9 @@ select {
 			color: white;
 			transition: .2s;
 		}
-		&:hover svg {transform: rotate(-180deg) scale(1.2);}
 	}
+	#app-header-settings:hover svg {transform: rotate(180deg) scale(1.2);}
+	#app-header-back:hover svg {transform: scale(1.2);}
 }
 
 // Footer

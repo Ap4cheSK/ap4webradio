@@ -10,7 +10,7 @@ function ErrorPage(errorCode: ErrorPageFormat) {
 
 	return (
 		<>
-			<AppHeader backBtn={true}/>
+			<AppHeader homeBtn={true}/>
 			<div className="error-page">
 				<h1>{t("errheader")}</h1>
 				<h2 className="error-code">{t("errline")} {errorCode.error}</h2>
