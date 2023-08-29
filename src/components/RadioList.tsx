@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import radioJsonList from "../assets/radios.json";
 import AppHeader from "./AppHeader";
-import noImage from "../assets/noimage.jpg";
 import AppFooter from "./AppFooter";
+import noImage from "../assets/noimage.webp";
 
 interface radioStationFormat {
 	station: {
@@ -19,7 +19,7 @@ function RadioItem(radioStation:radioStationFormat) {
 	return (
 		<Link to={"/radioweb/radio/" + radioStation.station.id}>
 			<div className="radio-item">
-				<img className="radio-avatar" src={radioStation.station.imgUrl ? radioStation.station.imgUrl : noImage}/>
+				<img className="radio-avatar" src={radioStation.station.imgUrl ? radioStation.station.imgUrl : noImage} alt={radioStation.station.name}/>
 				<div>
 					<h2 className="radio-name">{radioStation.station.name}</h2>
 					<p className="radio-info">{radioStation.station.info}</p>

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
-import registerServiceWorker from "./serviceWorker.ts"
+// import registerServiceWorker from "./serviceWorker.ts"
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
@@ -9,4 +9,4 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 	</React.StrictMode>,
 );
 
-registerServiceWorker();
+// registerServiceWorker();

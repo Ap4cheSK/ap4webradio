@@ -8,7 +8,8 @@ import RDSradioke from "./rds/RDSradioke";
 import RDSfunvlna from "./rds/RDSradiofunlivevlna";
 import RDSfunother from "./rds/RDSradiofunother";
 import RDSradioevropa2 from "./rds/RDSradioevropa2";
-import noImage from "../assets/noimage.jpg";
+import RDSradiorock from "./rds/RDSradiorock";
+import noImage from "../assets/noimage.webp";
 
 function RadioPlayer() {
 	function playButton() {
@@ -130,6 +131,9 @@ function RadioPlayer() {
 			} else if(radioStation?.id === "radioeu2cz") {
 				// Evropa 2 RDS
 				setRdsString(await RDSradioevropa2({ rdsUrl: radioStation.rdsUrl }));
+			} else if(radioStation?.id === "radiorock") {
+				// RadioRock RDS
+				setRdsString(await RDSradiorock({ rdsUrl: radioStation.rdsUrl }));
 			} else {
 				// No RDS
 				setRdsString(t("rds_unsupp"));

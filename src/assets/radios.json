@@ -116,7 +116,17 @@
 		"highInfo": "🇸🇰 128 kbps",
 		"lowUrl": "http://stream2.bestfm.sk/64.mp3",
 		"highUrl": "http://stream2.bestfm.sk/128.mp3",
-		"imgUrl": "",
+		"imgUrl": "http://www.bestfm.sk/wp-content/themes/bestfm/img/no-cover.png",
 		"rdsUrl": ""
+	},
+	{
+		"id": "radiorock",
+		"name": "Rádio Rock",
+		"lowInfo": "🇸🇰 64 kbps",
+		"highInfo": "🇸🇰 128 kbps",
+		"lowUrl": "https://stream.bauermedia.sk/rock-lo.mp3",
+		"highUrl": "https://stream.bauermedia.sk/rock-hi.mp3",
+		"imgUrl": "https://radiorock.sk/favicon-v4.png",
+		"rdsUrl": "https://api.radiorock.sk/playlist"
 	}
 ]
