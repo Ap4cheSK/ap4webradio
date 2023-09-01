@@ -28,6 +28,57 @@ function RadioPlayer() {
 		);
 	}
 
+	function handlePlay() {setIsPlaying(true)}
+
+	function handleStop() {setIsPlaying(false)}
+
+	function handleVolume(event: React.ChangeEvent<HTMLInputElement>) {
+		const newVolume = parseInt((event.target.value).toString());
+		if(isNaN(newVolume) || newVolume < 0) {
+			setVolume(0);
+		} else if(newVolume > 100) {
+			setVolume(100);
+		} else {
+			setVolume(Math.round(newVolume));
+		}
+		localStorage.setItem("app_def_vol", volume.toString());
+	}
+
+	function decreaseVol() {
+		const newVolume = volume - 1;
+		if(newVolume < 0) {
+			setVolume(0)
+		} else setVolume(newVolume);
+		localStorage.setItem("app_def_vol", volume.toString());
+	}
+
+	function increaseVol() {
+		const newVolume = volume + 1;
+		if(newVolume > 100) {
+			setVolume(100)
+		} else setVolume(newVolume);
+		localStorage.setItem("app_def_vol", volume.toString());
+	}
+
+	function handleCopyNow() {
+		const tempTextArea = document.createElement("textarea");
+		tempTextArea.style.position = "fixed";
+		tempTextArea.style.opacity = "0";
+		tempTextArea.value = rdsString;
+		document.body.appendChild(tempTextArea);
+		tempTextArea.select();
+
+		try {
+			const copy = document.execCommand("copy");
+			console.log(copy ? "Playing now copied to clipboard!" : "Copying failed!");
+			alert(copy ? "Playing now copied to clipboard!" : "Copying failed!");
+		} catch(error) {
+			console.error("Unablen to copy.", error);
+		}
+
+		document.body.removeChild(tempTextArea);
+	}
+
 	// Find desired radiostation
 	const { radioid } = useParams();
 	const radioStation = radioJsonList.find(radio => radio.id === radioid);
@@ -41,82 +92,20 @@ function RadioPlayer() {
 	const [useDataSaving, setUseDataSaving] = useState(false);
 	const { t } = useTranslation();
 
-	// Get LocalStorage data-saving-mode
 	useEffect(() => {
+		// Get LocalStorage data-saving-mode
 		const ls_dataSaving = localStorage.getItem("app_data_saving");
 		if(ls_dataSaving && ls_dataSaving === "true") setUseDataSaving(true);
-	}, [])
 
-	function handlePlay() {setIsPlaying(true)}
-	function handleStop() {setIsPlaying(false)}
-	function handleVolume(event: React.ChangeEvent<HTMLInputElement>) {
-		const newVolume = parseInt((event.target.value).toString());
-		if(isNaN(newVolume) || newVolume < 0) {
-			setVolume(0);
-		} else if(newVolume > 100) {
-			setVolume(100);
-		} else {
-			setVolume(Math.round(newVolume));
-		}
-		localStorage.setItem("app_def_vol", volume.toString());
-	}
-	function decreaseVol() {
-		const newVolume = volume - 1;
-		if(newVolume < 0) {
-			setVolume(0)
-		} else setVolume(newVolume);
-		localStorage.setItem("app_def_vol", volume.toString());
-	}
-	function increaseVol() {
-		const newVolume = volume + 1;
-		if(newVolume > 100) {
-			setVolume(100)
-		} else setVolume(newVolume);
-		localStorage.setItem("app_def_vol", volume.toString());
-	}
-
-	if(soundWaveRef.current) {
-		// Don't remove! Will cause not loading soundwave properly.
-	}
-
-	// Get settings from LocalStorage and set them
-	const ls_autoPlay = localStorage.getItem("app_autoplay");
-	const ls_defaultVolume = localStorage.getItem("app_def_vol");
-
-	useEffect(() => {
-		if(ls_defaultVolume) setVolume(parseInt(ls_defaultVolume));
+		// Get LocalStorage AutoPlay setting
+		const ls_autoPlay = localStorage.getItem("app_autoplay");
 		if(ls_autoPlay && ls_autoPlay === "true") setIsPlaying(true);
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
 
-	useEffect(() => {
-		if(audioStream.current) {
-			if(isPlaying) {
-				audioStream.current.pause();
-				audioStream.current.load();
-				audioStream.current.play();
-				if(soundWaveRef.current) {
-					const bars = soundWaveRef.current.querySelectorAll(".box");
-					bars.forEach(bar => {bar.classList.add("barplay")})
-				}
-			} else {
-				audioStream.current.pause();
-				if(soundWaveRef.current) {
-					const bars = soundWaveRef.current.querySelectorAll(".box");
-					bars.forEach(bar => {bar.classList.remove("barplay")})
-				}
-			}
-		}
-	}, [isPlaying]);
+		// Get LocalStorage default volume
+		const ls_defaultVolume = localStorage.getItem("app_def_vol");
+		if(ls_defaultVolume) setVolume(parseInt(ls_defaultVolume));
 
-	useEffect(() => {
-		if(audioStream.current) {
-			audioStream.current.volume = volume / 100;
-		}
-	}, [volume]);
-
-	// 
-	useEffect(() => {
+		// Start RDS Calls
 		rdsCall();
 		async function rdsCall() {
 			if(radioStation?.id === "funradio" || radioStation?.id === "radiovlna") {
@@ -142,28 +131,40 @@ function RadioPlayer() {
 
 		const rdsInterval = setInterval(rdsCall, 120000);
 		return () => clearInterval(rdsInterval);
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
 
-	// Copy Playing Now to Clipboard
-	function handleCopyNow() {
-		const tempTextArea = document.createElement("textarea");
-		tempTextArea.style.position = "fixed";
-		tempTextArea.style.opacity = "0";
-		tempTextArea.value = rdsString;
-		document.body.appendChild(tempTextArea);
-		tempTextArea.select();
-
-		try {
-			const copy = document.execCommand("copy");
-			console.log(copy ? "Playing now copied to clipboard!" : "Copying failed!");
-			alert(copy ? "Playing now copied to clipboard!" : "Copying failed!");
-		} catch(error) {
-			console.error("Unablen to copy.", error);
-		}
-
-		document.body.removeChild(tempTextArea);
+	if(soundWaveRef.current) {
+		// Don't remove! Will cause not loading soundwave properly.
 	}
+
+	// Handle start/stop stream
+	useEffect(() => {
+		if(audioStream.current) {
+			if(isPlaying) {
+				audioStream.current.pause();
+				audioStream.current.load();
+				audioStream.current.play();
+				if(soundWaveRef.current) {
+					const bars = soundWaveRef.current.querySelectorAll(".box");
+					bars.forEach(bar => {bar.classList.add("barplay")})
+				}
+			} else {
+				audioStream.current.pause();
+				if(soundWaveRef.current) {
+					const bars = soundWaveRef.current.querySelectorAll(".box");
+					bars.forEach(bar => {bar.classList.remove("barplay")})
+				}
+			}
+		}
+	}, [isPlaying]);
+
+	// Handle setting stream volume
+	useEffect(() => {
+		if(audioStream.current) {
+			audioStream.current.volume = volume / 100;
+		}
+	}, [volume]);
 
 	if(radioStation) {
 		return (<>

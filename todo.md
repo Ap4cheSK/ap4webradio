@@ -1,5 +1,7 @@
 # TO DO
-# Notes
+
+- add sharing button to radioplayer
+- maybe some embed for embedding on web?
 
 # Done
 - add "playing now" copy song

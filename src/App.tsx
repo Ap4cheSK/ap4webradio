@@ -21,22 +21,22 @@ function App() {
 
 	useEffect(() => {
 		if(ls_lang) setLanguage(ls_lang);
+
+		i18n.use(initReactI18next);
+		i18n.init({
+			resources: {
+				en : {translation: enTranslation},
+				sk : {translation: skTranslation},
+				cz : {translation: czTranslation}
+			},
+			lng: language,
+			fallbackLng: "en",
+			interpolation: {
+				escapeValue: false,
+			},
+		});
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-
-	i18n.use(initReactI18next);
-	i18n.init({
-		resources: {
-			en : {translation: enTranslation},
-			sk : {translation: skTranslation},
-			cz : {translation: czTranslation}
-		},
-		lng: language,
-		fallbackLng: "en",
-		interpolation: {
-			escapeValue: false,
-		},
-	});
 	
 	return (
 		<HashRouter>
