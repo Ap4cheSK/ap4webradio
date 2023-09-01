@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 // Localization
 import i18n from "i18next";
@@ -15,12 +15,13 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import './css/global.css';
 
 function App() {
+	// Localization
 	const ls_lang = localStorage.getItem("app_lang");
 	const [ language, setLanguage ] = useState("en");
 
 	useEffect(() => {
 		if(ls_lang) setLanguage(ls_lang);
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	i18n.use(initReactI18next);
@@ -36,9 +37,9 @@ function App() {
 			escapeValue: false,
 		},
 	});
-
+	
 	return (
-		<BrowserRouter>
+		<HashRouter>
 			<Routes>
 				<Route index path='/radioweb/' element={<RadioList/>}/>
 				<Route path='/radioweb/radio/:radioid' element={<RadioPlayer/>}/>
@@ -47,7 +48,7 @@ function App() {
 				<Route path='/radioweb/*' element={<ErrorPage error="404 Page not Found"/>}/>
 				<Route path='*' element={<ErrorPage error="404: Page not Found"/>}/> {/* Possibly dev only */}
 			</Routes>
-		</BrowserRouter>
+		</HashRouter>
 	)
 }
 
