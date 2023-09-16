@@ -41,11 +41,11 @@ function App() {
 	return (
 		<HashRouter>
 			<Routes>
-				<Route index path='/radioweb/' element={<RadioList/>}/>
-				<Route path='/radioweb/radio/:radioid' element={<RadioPlayer/>}/>
-				<Route path='/radioweb/settings' element={<RadioSettings/>}/>
-				<Route path='/radioweb/privacypolicy' element={<PrivacyPolicy/>}/>
-				<Route path='/radioweb/*' element={<ErrorPage error="404 Page not Found"/>}/>
+				<Route index path='/' element={<RadioList/>}/>
+				<Route path='/radio/:radioid' element={<RadioPlayer/>}/>
+				<Route path='/settings' element={<RadioSettings/>}/>
+				<Route path='/privacypolicy' element={<PrivacyPolicy/>}/>
+				<Route path='/*' element={<ErrorPage error="404 Page not Found"/>}/>
 				<Route path='*' element={<ErrorPage error="404: Page not Found"/>}/> {/* Possibly dev only */}
 			</Routes>
 		</HashRouter>

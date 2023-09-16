@@ -8,22 +8,23 @@ function RadioSettings() {
 	const [language, setLanguage] = useState("en");
 	const { i18n, t } = useTranslation();
 
-	// Get settings from LocalStorage and set them
-	const ls_autoPlay = localStorage.getItem("app_autoplay");
-	const ls_dataSaving = localStorage.getItem("app_data_saving");
-	const ls_lang = localStorage.getItem("app_lang");
-
-	// Handle LocalStorage
 	useEffect(() => {
+		// Handle LocalStorage; Get settings from LocalStorage and set them
+		const ls_autoPlay = localStorage.getItem("app_autoplay");
 		if(ls_autoPlay) {
 			if(ls_autoPlay === "true") setAutoPlay(true);
 			else setAutoPlay(false);
 		}
+		
+		const ls_dataSaving = localStorage.getItem("app_data_saving");
 		if(ls_dataSaving) {
 			if(ls_dataSaving === "true") setDataSaving(true);
 			else setDataSaving(false);
 		}
+
+		const ls_lang = localStorage.getItem("app_lang");
 		if(ls_lang) setLanguage(ls_lang);
+
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 

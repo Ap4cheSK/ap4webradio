@@ -17,7 +17,7 @@ interface radioStationFormat {
 
 function RadioItem(radioStation:radioStationFormat) {
 	return (
-		<Link to={"/radioweb/radio/" + radioStation.station.id}>
+		<Link to={"/radio/" + radioStation.station.id}>
 			<div className="radio-item">
 				<img className="radio-avatar" src={radioStation.station.imgUrl ? radioStation.station.imgUrl : noImage} alt={radioStation.station.name}/>
 				<div>

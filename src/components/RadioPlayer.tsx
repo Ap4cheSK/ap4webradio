@@ -142,7 +142,6 @@ function RadioPlayer() {
 	useEffect(() => {
 		if(audioStream.current) {
 			if(isPlaying) {
-				audioStream.current.pause();
 				audioStream.current.load();
 				audioStream.current.play();
 				if(soundWaveRef.current) {
@@ -160,11 +159,7 @@ function RadioPlayer() {
 	}, [isPlaying]);
 
 	// Handle setting stream volume
-	useEffect(() => {
-		if(audioStream.current) {
-			audioStream.current.volume = volume / 100;
-		}
-	}, [volume]);
+	useEffect(() => {if(audioStream.current) audioStream.current.volume = volume / 100;}, [volume]);
 
 	if(radioStation) {
 		return (<>
