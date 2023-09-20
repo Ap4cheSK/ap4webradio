@@ -93,14 +93,15 @@ select {
 	display: grid;
 	grid-auto-flow: row;
 	justify-content: center;
-	padding: 8px;
+	align-items: center;
+	padding: 12px;
 	gap: 16px;
 	backdrop-filter: brightness(50%);
 	box-shadow: 0px 0px 5px black;
 
 	.footer-contact {
 		.discord-icon {width: 32px;}
-		p {padding-bottom: 4px;}
+		p {margin-bottom: 4px;}
 		.discord-icon, p {color: white;}
 		display: flex;
 		justify-content: center;
@@ -115,6 +116,17 @@ select {
 			color: white;
 			&:hover {text-decoration: underline;}
 		}
+	}
+
+	.footer-changelog {
+		text-align: center;
+		.changelog-icon {
+			width: 32px;
+			color: white;
+			transition: .2s;
+			&:hover {transform: scale(1.2);}
+		}
+		@media(min-width: 720px) {text-align: right;}
 	}
 
 	@media(min-width: 720px) {
@@ -448,7 +460,23 @@ h1,h2,h3 {text-align: center;}
 	grid-auto-flow: row;
 	gap: 16px;
 	align-content: start;
+	justify-content: center;
+	justify-items: center;
 	padding: 8px;
 	p {color: white;}
 	b {color: $mainColor;}
+}
+
+// Changelog
+
+.changelog-update {
+	text-align: left !important;
+	border-bottom: 1px solid white;
+	padding: 8px;
+	ul li {
+		display: list-item;
+		list-style-type: disc;
+		list-style-position: inside;
+		padding: 2px;
+	}
 }
