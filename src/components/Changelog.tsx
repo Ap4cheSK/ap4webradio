@@ -16,6 +16,15 @@ function Changelog() {
 						<li>Added changelog page</li>
 					</ul>
 				</section>
+
+				<section className="changelog-update">
+					<h3>v5.1.0 | 4-10-2023</h3>
+					<ul>
+						<li>New OLED-friendly design</li>
+						<li>Added Themes and Theme switcher</li>
+					</ul>
+				</section>
+				
 			</section>
 
 			<AppFooter/>

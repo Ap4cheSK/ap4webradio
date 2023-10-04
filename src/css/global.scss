@@ -494,8 +494,10 @@ p {
 
 .changelog-update {
 	text-align: left !important;
-	border-bottom: 1px solid var(--color-accent);
 	padding: 8px;
+	width: 400px;
+	@media(max-width: 420px) {width: 300px;}
+
 	ul li {
 		display: list-item;
 		list-style-type: disc;
