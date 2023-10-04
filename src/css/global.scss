@@ -22,7 +22,10 @@ $textColor: rgb(220, 220, 220);
 [selected-theme="cyan"] {--color-accent: rgb(30, 196, 218);}
 [selected-theme="yellow"] {--color-accent: rgb(224, 231, 34);}
 
-html {scroll-behavior: smooth;}
+html {
+	scroll-behavior: smooth;
+	background: black;
+}
 
 #root {
 	min-height: 100vh;
