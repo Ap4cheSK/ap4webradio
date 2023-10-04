@@ -184,7 +184,7 @@ function RadioPlayer() {
 				<audio src={useDataSaving ? radioStation.lowUrl : radioStation.highUrl} ref={audioStream} id="radio-source"></audio>
 
 				<section className="radio-player-rds">
-					<h2>{t("playing_now")}</h2>
+					<h2 className="playing-now">{t("playing_now")}</h2>
 					<h3 className="radio-player-song" onClick={handleCopyNow}>{rdsString}</h3>
 				</section>
 
