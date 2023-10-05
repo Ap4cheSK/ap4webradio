@@ -2,6 +2,7 @@
 import { Routes, Route, HashRouter } from 'react-router-dom';
 // Resources
 import './css/global.css';
+import './css/page.css';
 import './i18n';
 // Components
 import RadioList from './components/RadioList';

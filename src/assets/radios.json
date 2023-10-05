@@ -50,6 +50,16 @@
 		"rdsUrl": "https://www.tvkosice.sk/api/playlists/radiokosice?limit=2"
 	},
 	{
+		"id": "radiorock",
+		"name": "Rádio Rock",
+		"lowInfo": "🇸🇰 64 kbps",
+		"highInfo": "🇸🇰 128 kbps",
+		"lowUrl": "https://stream.bauermedia.sk/rock-lo.mp3",
+		"highUrl": "https://stream.bauermedia.sk/rock-hi.mp3",
+		"imgUrl": "https://radiorock.sk/favicon-v4.png",
+		"rdsUrl": "https://api.radiorock.sk/playlist"
+	},
+	{
 		"id": "radiovlna",
 		"name": "Rádio Vlna",
 		"lowInfo": "🇸🇰 64 kbps",
@@ -58,6 +68,26 @@
 		"highUrl": "https://stream.radiovlna.sk/vlna-hi.mp3",
 		"imgUrl": "https://cdn.radiovlna.sk/img/logo/apple-touch-icon.png",
 		"rdsUrl": "https://cdn.radiovlna.sk/sepia/vlna.xml"
+	},
+	{
+		"id": "radiovlnarock",
+		"name": "Rádio Vlna Classic Rock",
+		"lowInfo": "🇸🇰 64 kbps",
+		"highInfo": "🇸🇰 128 kbps",
+		"lowUrl": "https://stream.radiovlna.sk:8000/rock-lo.mp3",
+		"highUrl": "https://stream.radiovlna.sk:8000/rock-hi.mp3",
+		"imgUrl": "https://cdn.radiovlna.sk/img/logo/apple-touch-icon.png",
+		"rdsUrl": "https://cdn.radiovlna.sk/sepia/rock.xml"
+	},
+	{
+		"id": "radiovlnaparty",
+		"name": "Rádio Vlna Oldies Party",
+		"lowInfo": "🇸🇰 64 kbps",
+		"highInfo": "🇸🇰 128 kbps",
+		"lowUrl": "https://stream.radiovlna.sk:8000/party-lo.mp3",
+		"highUrl": "https://stream.radiovlna.sk:8000/party-hi.mp3",
+		"imgUrl": "https://cdn.radiovlna.sk/img/logo/apple-touch-icon.png",
+		"rdsUrl": "https://cdn.radiovlna.sk/sepia/party.xml"
 	},
 	{
 		"id": "radioexpress",
@@ -118,15 +148,5 @@
 		"highUrl": "http://stream2.bestfm.sk/128.mp3",
 		"imgUrl": "http://www.bestfm.sk/wp-content/themes/bestfm/img/no-cover.png",
 		"rdsUrl": ""
-	},
-	{
-		"id": "radiorock",
-		"name": "Rádio Rock",
-		"lowInfo": "🇸🇰 64 kbps",
-		"highInfo": "🇸🇰 128 kbps",
-		"lowUrl": "https://stream.bauermedia.sk/rock-lo.mp3",
-		"highUrl": "https://stream.bauermedia.sk/rock-hi.mp3",
-		"imgUrl": "https://radiorock.sk/favicon-v4.png",
-		"rdsUrl": "https://api.radiorock.sk/playlist"
 	}
 ]

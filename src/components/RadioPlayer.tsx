@@ -34,29 +34,11 @@ function RadioPlayer() {
 
 	function handleVolume(event: React.ChangeEvent<HTMLInputElement>) {
 		const newVolume = parseInt((event.target.value).toString());
-		if(isNaN(newVolume) || newVolume < 0) {
-			setVolume(0);
-		} else if(newVolume > 100) {
-			setVolume(100);
-		} else {
-			setVolume(Math.round(newVolume));
-		}
-		localStorage.setItem("app_def_vol", volume.toString());
-	}
 
-	function decreaseVol() {
-		const newVolume = volume - 1;
-		if(newVolume < 0) {
-			setVolume(0)
-		} else setVolume(newVolume);
-		localStorage.setItem("app_def_vol", volume.toString());
-	}
+		if(isNaN(newVolume) || newVolume < 0) setVolume(0);
+		else if(newVolume > 100) setVolume(100);
+		else setVolume(newVolume);
 
-	function increaseVol() {
-		const newVolume = volume + 1;
-		if(newVolume > 100) {
-			setVolume(100)
-		} else setVolume(newVolume);
 		localStorage.setItem("app_def_vol", volume.toString());
 	}
 
@@ -79,17 +61,18 @@ function RadioPlayer() {
 		document.body.removeChild(tempTextArea);
 	}
 
-	// Find desired radiostation
+	// Find radiostation
 	const { radioid } = useParams();
 	const radioStation = radioJsonList.find(radio => radio.id === radioid);
-
-	// Init
+	// AudioStream
 	const audioStream = useRef<HTMLAudioElement>(null);
-	const soundWaveRef = useRef<HTMLDivElement>(null);
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [volume, setVolume] = useState(20);
-	const [rdsString, setRdsString] = useState("");
 	const [useDataSaving, setUseDataSaving] = useState(false);
+	// RDS
+	const [rdsString, setRdsString] = useState("");
+	// Other
+	const soundWaveRef = useRef<HTMLDivElement>(null);
 	const { t } = useTranslation();
 
 	useEffect(() => {
@@ -111,8 +94,8 @@ function RadioPlayer() {
 			if(radioStation?.id === "funradio" || radioStation?.id === "radiovlna") {
 				// FunRadio Live / RadioVlna RDS
 				setRdsString(await RDSfunvlna({ rdsUrl: radioStation.rdsUrl }));
-			} else if(radioStation?.id === "funczsk" || radioStation?.id === "fundance" || radioStation?.id === "funchill") {
-				// FunRadio CZSK / Dance / Chill RDS
+			} else if(radioStation?.id === "funczsk" || radioStation?.id === "fundance" || radioStation?.id === "funchill" || radioStation?.id === "radiovlnarock" || radioStation?.id === "radiovlnaparty") {
+				// FunRadio CZSK / Dance / Chill / RadioVlnaRock / RadioVlnaParty RDS
 				setRdsString(await RDSfunother({ rdsUrl: radioStation.rdsUrl }));
 			} else if(radioStation?.id === "radioke") {
 				// RadioKE RDS
@@ -129,14 +112,14 @@ function RadioPlayer() {
 			}
 		}
 
-		const rdsInterval = setInterval(rdsCall, 120000);
+		const rdsInterval = setInterval(rdsCall, 1000*60*2); // msec*sec*min
 		return () => clearInterval(rdsInterval);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [])
+	}, []);
 
-	if(soundWaveRef.current) {
-		// Don't remove! Will cause not loading soundwave properly.
-	}
+	// if(soundWaveRef.current) {
+	// 	// Don't remove! Will cause not loading soundwave properly.
+	// }
 
 	// Handle start/stop stream
 	useEffect(() => {
@@ -174,11 +157,7 @@ function RadioPlayer() {
 				<section className="radio-player-controls">
 					{ isPlaying ? stopButton() : playButton() }
 					<input type="range" value={volume.toString()} onChange={handleVolume} min={0} max={100} step={1} id="player-volume"/>
-					<div className="volume-custom">
-						<button id="volDec" className="player-volume-btn" onClick={decreaseVol} aria-label="Decrease volume">-</button>
-						<input type="number" value={volume.toString()} onChange={handleVolume} min={0} max={100} step={1} id="player-volume-numerical" aria-label="Current volume"/>
-						<button id="volInc" className="player-volume-btn" onClick={increaseVol} aria-label="Increase volume">+</button>
-					</div>
+					<p className="volume-display"><b>{volume.toString()}%</b></p>
 				</section>
 	
 				<audio src={useDataSaving ? radioStation.lowUrl : radioStation.highUrl} ref={audioStream} id="radio-source"></audio>
