@@ -22,7 +22,7 @@ $textColor: rgb(220, 220, 220);
 
 html {
 	scroll-behavior: smooth;
-	background: black;
+	background: $backgroundColor;
 }
 
 #root {
@@ -58,6 +58,7 @@ html {
 .cancel-btn {background: $errorColor;}
 
 // Inputs > Select
+
 select {
 	font-size: 16px;
 	padding-left: 2px;
@@ -77,7 +78,6 @@ select {
 
 	#app-header-name {
 		color: white;
-		text-shadow: 2px 2px 5px black;
 		text-align: center;
 		transition: 0.2s;
 		&:hover {color: var(--color-accent);}
@@ -184,7 +184,6 @@ p {
 	text-align: center;
 	
 	.error-code {
-		text-shadow: 0px 0px 5px black;
 		margin-top: 16px;
 		color: $errorColor;
 	}

@@ -26,10 +26,7 @@ $textColor: rgb(220, 220, 220);
 	@media (min-width: 1280px) {grid-template-columns: repeat(3, 1fr);}
 }
 
-.radio-list-group {
-	color: var(--color-accent);
-	text-shadow: 0px 0px 5px black;
-}
+.radio-list-group {color: var(--color-accent);}
 
 // Radio Banner
 
@@ -99,10 +96,7 @@ $textColor: rgb(220, 220, 220);
 		justify-items: center;
 		gap: 8px;
 
-		.radio-player-name {
-			color: var(--color-accent);
-			text-shadow: 0px 0px 5px black;
-		}
+		.radio-player-name {color: var(--color-accent);}
 
 		.radio-player-avatar {
 			width: 128px;

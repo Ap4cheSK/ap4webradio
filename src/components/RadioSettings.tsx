@@ -14,16 +14,12 @@ function RadioSettings() {
 	useEffect(() => {
 		// Handle LocalStorage; Get settings from LocalStorage and set them
 		const ls_autoPlay = localStorage.getItem("app_autoplay");
-		if(ls_autoPlay) {
-			if(ls_autoPlay === "true") setAutoPlay(true);
-			else setAutoPlay(false);
-		}
+		if(ls_autoPlay && ls_autoPlay === "true") setAutoPlay(true);
+		else setAutoPlay(false);
 		
 		const ls_dataSaving = localStorage.getItem("app_data_saving");
-		if(ls_dataSaving) {
-			if(ls_dataSaving === "true") setDataSaving(true);
-			else setDataSaving(false);
-		}
+		if(ls_dataSaving && ls_dataSaving === "true") setDataSaving(true);
+		else setDataSaving(false);
 
 		const ls_lang = localStorage.getItem("app_lang");
 		if(ls_lang) setLanguage(ls_lang);
@@ -36,19 +32,13 @@ function RadioSettings() {
 
 	// Handle settings
 	function handleAutoPlay() {
-		if(autoPlay) {
-			setAutoPlay(false);
-		} else {
-			setAutoPlay(true);
-		}
+		if(autoPlay) setAutoPlay(false);
+		else setAutoPlay(true);
 	}
 
 	function handleDataSaving() {
-		if(dataSaving) {
-			setDataSaving(false);
-		} else {
-			setDataSaving(true);
-		}
+		if(dataSaving) setDataSaving(false);
+		else setDataSaving(true);
 	}
 
 	function handleLanguageSwitch(event: React.ChangeEvent<HTMLSelectElement>) {

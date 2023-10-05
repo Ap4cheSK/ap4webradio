@@ -24,6 +24,17 @@ function Changelog() {
 						<li>Added Themes and Theme switcher</li>
 					</ul>
 				</section>
+
+				<section className="changelog-update">
+					<h3>v5.2.0 | 5-10-2023</h3>
+					<ul>
+						<li>Added Rádio Vlna Classic Rock (+RDS)</li>
+						<li>Added Rádio Vlna Oldies Party (+RDS)</li>
+						<li>Removed volume buttons and numerical input</li>
+						<li>Design fixes</li>
+						<li>Code optimization</li>
+					</ul>
+				</section>
 				
 			</section>
 
