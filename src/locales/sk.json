@@ -10,5 +10,10 @@
 	"playing_now": "Práve hraje",
 	"err_noradio": "Rádio sa nenašlo",
 	"errheader": "Niečo sa pokazilo...",
-	"errline": "Chyba:"
+	"errline": "Chyba:",
+	"stg_theme": "Farba stránky",
+	"stg-th-lime": "Limetková",
+	"stg-th-pink": "Ružová",
+	"stg-th-cyan": "Tyrkysová",
+	"stg-th-yellow": "Žltá"
 }

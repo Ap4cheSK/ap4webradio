@@ -35,6 +35,15 @@ function Changelog() {
 						<li>Code optimization</li>
 					</ul>
 				</section>
+
+				<section className="changelog-update">
+					<h3>v5.2.1 | 4-1-2024</h3>
+					<ul>
+						<li>Fixed Best.FM URLs and Image</li>
+						<li>Slovak language translated 100% for now</li>
+						<li>Happy New Year 2024!</li>
+					</ul>
+				</section>
 				
 			</section>
 
