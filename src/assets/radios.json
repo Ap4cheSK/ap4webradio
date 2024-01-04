@@ -144,9 +144,9 @@
 		"name": "Rádio Best.FM",
 		"lowInfo": "🇸🇰 64 kbps",
 		"highInfo": "🇸🇰 128 kbps",
-		"lowUrl": "http://stream2.bestfm.sk/64.mp3",
-		"highUrl": "http://stream2.bestfm.sk/128.mp3",
-		"imgUrl": "http://www.bestfm.sk/wp-content/themes/bestfm/img/no-cover.png",
+		"lowUrl": "https://cors-proxy.elfsight.com/http://stream2.bestfm.sk/64.mp3?_=1",
+		"highUrl": "https://cors-proxy.elfsight.com/http://stream2.bestfm.sk/128.mp3?_=1",
+		"imgUrl": "https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/c7db24a7-a5f6-4788-8a18-47b78817778a/no-cover.png",
 		"rdsUrl": ""
 	}
 ]
