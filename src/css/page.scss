@@ -34,7 +34,7 @@ $textColor: rgb(220, 220, 220);
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	gap: 16px;
+	gap: 12px;
 	border: 1px solid transparent;
 	border-radius: 8px;
 	padding: 8px;
@@ -43,21 +43,31 @@ $textColor: rgb(220, 220, 220);
 	cursor: pointer;
 
 	.radio-avatar {
-		max-height: 64px;
-		max-width: 64px;
-		height: 64px;
-		width: 64px;
+		max-height: 72px;
+		max-width: 72px;
+		height: 72px;
+		width: 72px;
 		border-radius: 64px;
 	}
 
-	h2 {color: $textColor;}
+	.radio-rds, .radio-info {
+		font-size: 12px;
+		.playing-now {color: var(--color-accent);}
+		@media(min-width: 720px) {font-size: 14px;}
+		@media(min-width: 1280px) {font-size: 16px;}
+	}
+
+	h2 {
+		color: $textColor;
+		text-align: left;
+	}
 	
 	@media (max-width: 720px) {
 		.radio-avatar {
-			max-height: 48px;
-			max-width: 48px;
-			height: 48px;
-			width: 48px;
+			max-height: 64px;
+			max-width: 64px;
+			height: 64px;
+			width: 64px;
 		}
 	}
 

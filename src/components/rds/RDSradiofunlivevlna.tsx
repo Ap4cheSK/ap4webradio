@@ -8,7 +8,6 @@ async function RDSfunlivevlna(rdsUrl: rdsFormat) {
 	const rdsParse = xmlParser.parseFromString(await fetchRDS.text(), "text/xml");
 	const rdsData = (rdsParse.getElementsByTagName("interpret")[1].childNodes[0].nodeValue + " - " + rdsParse.getElementsByTagName("skladba")[1].childNodes[0].nodeValue).normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-	console.log(`AP4-RDS: ${rdsData}`);
 	return (rdsData);
 }
 
