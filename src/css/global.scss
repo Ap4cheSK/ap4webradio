@@ -12,6 +12,7 @@ $textColor: rgb(220, 220, 220);
 	font-family: 'Ubuntu', sans-serif;
 	box-sizing: border-box;
 	text-decoration: none;
+	scroll-behavior: smooth;
 }
 
 :root,
@@ -20,10 +21,8 @@ $textColor: rgb(220, 220, 220);
 [selected-theme="cyan"] {--color-accent: rgb(30, 196, 218); --color-accent-opacity: rgba(30, 196, 218, 0.1);}
 [selected-theme="yellow"] {--color-accent: rgb(224, 231, 34); --color-accent-opacity: rgba(224, 231, 34, 0.1);}
 
-html {
-	scroll-behavior: smooth;
-	background: $backgroundColor;
-}
+html {background: $backgroundColor;}
+.page-header {text-align: center;}
 
 #root {
 	min-height: 100vh;
@@ -32,8 +31,6 @@ html {
 	gap: 16px;
 	background: $backgroundColor;
 }
-
-.page-header {text-align: center;}
 
 // Buttons
 
@@ -108,8 +105,8 @@ select {
 	box-shadow: 0px 0px 5px 2px var(--color-accent);
 
 	.footer-contact {
-		.discord-icon {width: 32px;}
 		p {margin-bottom: 4px;}
+		.discord-icon {width: 32px;}
 		.discord-icon, p {color: white;}
 		display: flex;
 		justify-content: center;
@@ -131,17 +128,33 @@ select {
 	}
 
 	.footer-changelog {
-		text-align: center;
-		.changelog-icon {
-			width: 32px;
-			color: white;
-			transition: .1s ease-in-out;
-			&:hover {
-				transform: scale(1.2);
+		&:hover a {
+			color: var(--color-accent);
+			gap: 8px;
+
+			.changelog-icon {
 				color: var(--color-accent);
+				transform: scale(1.2);
 			}
 		}
-		@media(min-width: 720px) {text-align: right;}
+
+		a {
+			display: grid;
+			justify-content: center;
+			grid-auto-flow: column;
+			align-items: center;
+			gap: 4px;
+			color: white;
+			transition: .1s ease-in-out;
+
+			.changelog-icon {
+				width: 32px;
+				color: white;
+				transition: .1s ease-in-out;
+			}
+
+			@media(min-width: 720px) {justify-content: right;;}
+		}
 	}
 
 	@media(min-width: 720px) {

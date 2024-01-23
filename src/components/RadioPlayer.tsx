@@ -4,12 +4,14 @@ import { useTranslation } from "react-i18next";
 import radioJsonList from "../assets/radios.json";
 import AppHeader from "./AppHeader";
 import ErrorPage from "./ErrorPage";
+import noImage from "../assets/noimage.webp";
 import RDSradioke from "./rds/RDSradioke";
 import RDSfunvlna from "./rds/RDSradiofunlivevlna";
 import RDSfunother from "./rds/RDSradiofunother";
 import RDSradioevropa2 from "./rds/RDSradioevropa2";
 import RDSradiorock from "./rds/RDSradiorock";
-import noImage from "../assets/noimage.webp";
+import RDSradioeu2melody from "./rds/RDSradioeu2melody";
+import RDSradioexpres from "./rds/RDSradioexpres";
 
 function RadioPlayer() {
 	function playButton() {
@@ -97,6 +99,12 @@ function RadioPlayer() {
 			} else if(radioStation?.id === "funczsk" || radioStation?.id === "fundance" || radioStation?.id === "funchill" || radioStation?.id === "radiovlnarock" || radioStation?.id === "radiovlnaparty") {
 				// FunRadio CZSK / Dance / Chill / RadioVlnaRock / RadioVlnaParty RDS
 				setRdsString(await RDSfunother({ rdsUrl: radioStation.rdsUrl }));
+			} else if(radioStation?.id === "radioeu2sk" || radioStation?.id === "radiomelody") {
+				// Europa 2 / Melody RDS
+				setRdsString(await RDSradioeu2melody({ rdsUrl: radioStation.rdsUrl }));
+			} else if(radioStation?.id === "radioexpress") {
+				// Expres RDS
+				setRdsString(await RDSradioexpres({ rdsUrl: radioStation.rdsUrl }));
 			} else if(radioStation?.id === "radioke") {
 				// RadioKE RDS
 				setRdsString(await RDSradioke({ rdsUrl: radioStation.rdsUrl }));
@@ -116,10 +124,6 @@ function RadioPlayer() {
 		return () => clearInterval(rdsInterval);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-
-	// if(soundWaveRef.current) {
-	// 	// Don't remove! Will cause not loading soundwave properly.
-	// }
 
 	// Handle start/stop stream
 	useEffect(() => {

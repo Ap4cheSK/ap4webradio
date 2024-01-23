@@ -1,0 +1,49 @@
+[
+	{
+		"version": "5.0.0",
+		"date": "20-9-2023",
+		"changes": [
+			"Fixed translations loading",
+			"Added changelog page"
+		]
+	},
+	{
+		"version": "5.1.0",
+		"date": "4-10-2023",
+		"changes": [
+			"New OLED-friendly design",
+			"Added Themes and Theme switcher"
+		]
+	},
+	{
+		"version": "5.2.0",
+		"date": "5-10-2023",
+		"changes": [
+			"Added Rádio Vlna Classic Rock (+RDS)",
+			"Added Rádio Vlna Oldies Party (+RDS)",
+			"Removed volume buttons and numerical input",
+			"Design fixes",
+			"Code optimization"
+		]
+	},
+	{
+		"version": "5.2.1",
+		"date": "4-1-2024",
+		"changes": [
+			"Fixed Best.FM URLs and Image",
+			"Slovak language translated 100% for now",
+			"Happy New Year 2024!"
+		]
+	},
+	{
+		"version": "5.2.2",
+		"date": "23-1-2024",
+		"changes": [
+			"Added Radio Europa 2 RDS",
+			"Added Radio Melody RDS",
+			"Added Radio Expres RDS",
+			"Added current app version to changelog link",
+			"Internal changes and optimization"
+		]
+	}
+]

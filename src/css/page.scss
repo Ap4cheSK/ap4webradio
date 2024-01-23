@@ -267,6 +267,7 @@ $textColor: rgb(220, 220, 220);
 	padding: 8px;
 	width: 400px;
 	@media(max-width: 420px) {width: 300px;}
+	&:last-child h3 {color: var(--color-accent);}
 
 	ul li {
 		display: list-item;

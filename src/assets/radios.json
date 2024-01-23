@@ -97,7 +97,7 @@
 		"lowUrl": "https://stream.bauermedia.sk/96.mp3",
 		"highUrl": "https://stream.bauermedia.sk/128.mp3",
 		"imgUrl": "https://www.expres.sk/wp-content/uploads/2015/06/cropped-favicon-1-256x256.png",
-		"rdsUrl": ""
+		"rdsUrl": "https://www.expres.sk/wp-json/expres/v1/playlist"
 	},
 	{
 		"id": "radioeu2sk",
@@ -107,7 +107,7 @@
 		"lowUrl": "https://stream.bauermedia.sk/europa2-lo.mp3",
 		"highUrl": "https://stream.bauermedia.sk/europa2-hi.mp3",
 		"imgUrl": "https://www.europa2.sk/wp-content/uploads/2023/05/cropped-favicon-256x256.png?w=256&h=256",
-		"rdsUrl": ""
+		"rdsUrl": "https://www.europa2.sk/wp-json/radio/v1/playlist"
 	},
 	{
 		"id": "radioeu2cz",
@@ -127,7 +127,7 @@
 		"lowUrl": "https://stream.bauermedia.sk/melody-lo.mp3",
 		"highUrl": "https://stream.bauermedia.sk/melody-hi.mp3",
 		"imgUrl": "https://www.radiomelody.sk/wp-content/uploads/2023/01/cropped-radio-melody-favicon-1-256x256.png?w=256&h=256",
-		"rdsUrl": ""
+		"rdsUrl": "https://www.radiomelody.sk/wp-json/radio/v1/playlist"
 	},
 	{
 		"id": "radiobeat",
