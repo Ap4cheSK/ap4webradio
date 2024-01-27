@@ -155,7 +155,7 @@ function RadioPlayer() {
 				<section className="radio-player-station">
 					<img className="radio-player-avatar" src={radioStation.imgUrl ? radioStation.imgUrl : noImage}/>
 					<h2 className="radio-player-name">{radioStation.name}</h2>
-					<p className="radio-player-info">{useDataSaving ? radioStation.lowInfo : radioStation.highInfo}</p>
+					<p className="radio-player-info small-text">{useDataSaving ? radioStation.lowInfo : radioStation.highInfo}</p>
 				</section>
 
 				<section className="radio-player-controls">
@@ -168,7 +168,8 @@ function RadioPlayer() {
 
 				<section className="radio-player-rds">
 					<h2 className="playing-now">{t("playing_now")}</h2>
-					<h3 className="radio-player-song" onClick={handleCopyNow}>{rdsString}</h3>
+					<h3 className="radio-player-song" onClick={handleCopyNow} title={`${rdsString} | Click to copy song name`}>{rdsString}</h3>
+					<p className="copy-text small-text">Click to copy song name</p>
 				</section>
 
 				<div id="sound-wave" ref={soundWaveRef} aria-label="Audio animation">

@@ -81,10 +81,14 @@ select {
 	}
 
 	#app-header-back, #app-header-settings {
+		display: grid;
+		justify-content: center;
+		align-content: center;
+		
 		svg {
-			height: 32px;
+			height: 30px;
 			color: white;
-			transition: .2s;
+			transition: 0.2s;
 		}
 	}
 	#app-header-settings:hover svg {transform: rotate(180deg) scale(1.2);}
@@ -168,7 +172,7 @@ select {
 
 h1,h2,h3,p {color: $textColor;}
 h1,h2,h3 {text-align: center;}
-h1 {font-size: 28px;}
+h1 {font-size: 24px;}
 h2 {
 	font-size: 22px;
 	color: var(--color-accent);
@@ -183,10 +187,16 @@ p {
 }
 
 @media (min-width: 1280px) {
-	h1 {font-size: 32px;}
+	h1 {font-size: 30px;}
 	h2 {font-size: 26px;}
 	h3 {font-size: 22px;}
 	p {font-size: 20px;}
+}
+
+.small-text {
+	font-size: 12px;
+	@media(min-width: 720px) {font-size: 14px;}
+	@media(min-width: 1280px) {font-size: 16px;}
 }
 
 // Error Page

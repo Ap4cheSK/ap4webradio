@@ -1,5 +1,6 @@
 // React
 import { Routes, Route, HashRouter } from 'react-router-dom';
+import { useEffect } from 'react';
 // Resources
 import './css/global.css';
 import './css/page.css';
@@ -11,7 +12,6 @@ import ErrorPage from "./components/ErrorPage";
 import RadioSettings from './components/RadioSettings';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Changelog from './components/Changelog';
-import { useEffect } from 'react';
 
 function App() {
 	useEffect(() => {

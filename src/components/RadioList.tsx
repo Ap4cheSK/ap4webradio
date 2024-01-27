@@ -65,13 +65,13 @@ function RadioItem(radioStation:radioStationFormat) {
 	}, []);
 
 	return (
-		<Link to={"/radio/" + radioStation.id}>
+		<Link to={`/radio/${radioStation.id}`}>
 			<div className="radio-item">
 				<img className="radio-avatar" src={radioStation.imgUrl ? radioStation.imgUrl : noImage} alt={radioStation.name}/>
 				<div>
 					<h2 className="radio-name">{radioStation.name}</h2>
-					<p className="radio-info">{radioStation.info}</p>
-					{rdsString ? <p className="radio-rds"><span className="playing-now">{t("playing_now")}:</span> {rdsString}</p> : ""}
+					<p className="radio-info small-text">{radioStation.info}</p>
+					{rdsString ? <p className="radio-rds small-text"><span className="playing-now">{t("playing_now")}:</span> {rdsString}</p> : ""}
 				</div>
 			</div>
 		</Link>
