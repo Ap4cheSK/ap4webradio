@@ -13,6 +13,7 @@ import RDSradioevropa2 from "./rds/RDSradioevropa2";
 import RDSradiorock from "./rds/RDSradiorock";
 import RDSradioeu2melody from "./rds/RDSradioeu2melody";
 import RDSradioexpres from "./rds/RDSradioexpres";
+import RDSbestfm from "./rds/RDSbestfm";
 
 interface radioStationFormat {
 	id: string;
@@ -56,6 +57,9 @@ function RadioItem(radioStation:radioStationFormat) {
 			} else if(radioStation?.id === "radiorock") {
 				// RadioRock RDS
 				setRdsString(await RDSradiorock({ rdsUrl: radioStation.rdsUrl }));
+			} else if(radioStation?.id === "radiobestfm") {
+				// Best.FM RDS
+				setRdsString(await RDSbestfm({ rdsUrl: radioStation.rdsUrl }));
 			}
 		}
 
