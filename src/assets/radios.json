@@ -7,7 +7,30 @@
 		"lowUrl": "https://stream.funradio.sk:18443/fun128.mp3",
 		"highUrl": "https://stream.funradio.sk:18443/fun192.mp3",
 		"imgUrl": "https://www.funradio.sk/img/logo/apple-icon-180x180.png",
+		"bigImgUrl": "https://www.funradio.sk/static/stream/2019/11/5de2ef18255bf/logo.svg?v=2019-11-30-233712",
 		"rdsUrl": "https://cdn.funradio.sk/sepia/live.xml"
+	},
+	{
+		"id": "funleto",
+		"name": "Fun Rádio Leto",
+		"lowInfo": "🇸🇰 64 kbps",
+		"highInfo": "🇸🇰 128 kbps",
+		"lowUrl": "https://stream.funradio.sk:18443/summer128.mp3",
+		"highUrl": "https://stream.funradio.sk:18443/summer128.mp3",
+		"imgUrl": "https://www.funradio.sk/img/logo/apple-icon-180x180.png",
+		"bigImgUrl": "https://www.funradio.sk/static/stream/2019/11/5de2efe62a358/logo.svg?v=2024-07-02-155203",
+		"rdsUrl": "https://cdn.funradio.sk/sepia/summer.xml"
+	},
+	{
+		"id": "fundance",
+		"name": "Fun Rádio Dance",
+		"lowInfo": "🇸🇰 64 kbps",
+		"highInfo": "🇸🇰 128 kbps",
+		"lowUrl": "https://stream.funradio.sk:18000/dance64.mp3",
+		"highUrl": "https://stream.funradio.sk:18000/dance128.mp3",
+		"imgUrl": "https://www.funradio.sk/img/logo/apple-icon-180x180.png",
+		"bigImgUrl": "https://www.funradio.sk/static/stream/2019/11/5de2eff156369/logo.svg?v=2023-08-10-104111",
+		"rdsUrl": "https://cdn.funradio.sk/sepia/dance.xml"
 	},
 	{
 		"id": "funczsk",
@@ -17,17 +40,19 @@
 		"lowUrl": "https://stream.funradio.sk:18443/cs64.mp3",
 		"highUrl": "https://stream.funradio.sk:18443/cs128.mp3",
 		"imgUrl": "https://www.funradio.sk/img/logo/apple-icon-180x180.png",
+		"bigImgUrl": "https://www.funradio.sk/static/stream/2019/11/5de2effc9a9d9/logo.svg?v=2019-11-30-234100",
 		"rdsUrl": "https://cdn.funradio.sk/sepia/cs.xml"
 	},
 	{
-		"id": "fundance",
-		"name": "Fun Rádio Get Fun",
+		"id": "funretro",
+		"name": "Fun Rádio 80's-90's",
 		"lowInfo": "🇸🇰 64 kbps",
 		"highInfo": "🇸🇰 128 kbps",
-		"lowUrl": "https://stream.funradio.sk:18000/dance64.mp3",
-		"highUrl": "https://stream.funradio.sk:18000/dance128.mp3",
+		"lowUrl": "https://stream.funradio.sk:18443/80-90-64.mp3",
+		"highUrl": "https://stream.funradio.sk:18443/80-90-128.mp3",
 		"imgUrl": "https://www.funradio.sk/img/logo/apple-icon-180x180.png",
-		"rdsUrl": "https://cdn.funradio.sk/sepia/dance.xml"
+		"bigImgUrl": "https://www.funradio.sk/static/stream/2019/11/5de2f007b0208/logo.svg?v=2019-11-30-234112",
+		"rdsUrl": "https://cdn.funradio.sk/sepia/80.xml"
 	},
 	{
 		"id": "funchill",
@@ -37,7 +62,30 @@
 		"lowUrl": "https://stream.funradio.sk:8000/chill64.mp3",
 		"highUrl": "https://stream.funradio.sk:8000/chill128.mp3",
 		"imgUrl": "https://www.funradio.sk/img/logo/apple-icon-180x180.png",
+		"bigImgUrl": "https://www.funradio.sk/static/stream/2021/10/615c7455903a0/logo.svg?v=2024-03-26-152051",
 		"rdsUrl": "https://cdn.funradio.sk/sepia/chill.xml"
+	},
+	{
+		"id": "funmilenial",
+		"name": "Fun Rádio Mileniálky",
+		"lowInfo": "🇸🇰 64 kbps",
+		"highInfo": "🇸🇰 128 kbps",
+		"lowUrl": "https://stream.funradio.sk:8000/milenialky64.mp3",
+		"highUrl": "https://stream.funradio.sk:8000/milenialky128.mp3",
+		"imgUrl": "https://www.funradio.sk/img/logo/apple-icon-180x180.png",
+		"bigImgUrl": "https://www.funradio.sk/static/stream/2023/10/652e187b5e2d3/logo.svg?v=2024-03-26-152107",
+		"rdsUrl": "https://cdn.funradio.sk/sepia/milenialky.xml"
+	},
+	{
+		"id": "funusmev",
+		"name": "Fun Rádio Úsmev :)",
+		"lowInfo": "🇸🇰 64 kbps",
+		"highInfo": "🇸🇰 128 kbps",
+		"lowUrl": "https://stream.funradio.sk:8000/usmev64.mp3",
+		"highUrl": "https://stream.funradio.sk:8000/usmev128.mp3",
+		"imgUrl": "https://www.funradio.sk/img/logo/apple-icon-180x180.png",
+		"bigImgUrl": "https://www.funradio.sk/static/stream/2024/05/6655bfe33191e/logo.svg?v=2024-07-02-155216",
+		"rdsUrl": "https://cdn.funradio.sk/sepia/usmev.xml"
 	},
 	{
 		"id": "radioke",
@@ -47,6 +95,7 @@
 		"lowUrl": "https://stream.21.sk/radiokosice-64.mp3",
 		"highUrl": "https://stream.21.sk/radiokosice-128.mp3",
 		"imgUrl": "https://www.radiokosice.sk/favicon-196x196.png",
+		"bigImgUrl": "https://www.radiokosice.sk/static/media/radio-ke@2x.f197d793.png",
 		"rdsUrl": "https://www.tvkosice.sk/api/playlists/radiokosice?limit=2"
 	},
 	{
@@ -57,6 +106,7 @@
 		"lowUrl": "https://stream.bauermedia.sk/rock-lo.mp3",
 		"highUrl": "https://stream.bauermedia.sk/rock-hi.mp3",
 		"imgUrl": "https://radiorock.sk/favicon-v4.png",
+		"bigImgUrl": "",
 		"rdsUrl": "https://api.radiorock.sk/playlist"
 	},
 	{
@@ -67,6 +117,7 @@
 		"lowUrl": "https://stream.radiovlna.sk/vlna-lo.mp3",
 		"highUrl": "https://stream.radiovlna.sk/vlna-hi.mp3",
 		"imgUrl": "https://cdn.radiovlna.sk/img/logo/apple-touch-icon.png",
+		"bigImgUrl": "https://cdn.radiovlna.sk/img/Radio_Vlna_Logo.png?v=2024-08-09-2250",
 		"rdsUrl": "https://cdn.radiovlna.sk/sepia/vlna.xml"
 	},
 	{
@@ -77,6 +128,7 @@
 		"lowUrl": "https://stream.radiovlna.sk:8000/rock-lo.mp3",
 		"highUrl": "https://stream.radiovlna.sk:8000/rock-hi.mp3",
 		"imgUrl": "https://cdn.radiovlna.sk/img/logo/apple-touch-icon.png",
+		"bigImgUrl": "https://cdn.radiovlna.sk/img/Radio_Vlna_Logo.png?v=2024-08-09-2250",
 		"rdsUrl": "https://cdn.radiovlna.sk/sepia/rock.xml"
 	},
 	{
@@ -87,6 +139,7 @@
 		"lowUrl": "https://stream.radiovlna.sk:8000/party-lo.mp3",
 		"highUrl": "https://stream.radiovlna.sk:8000/party-hi.mp3",
 		"imgUrl": "https://cdn.radiovlna.sk/img/logo/apple-touch-icon.png",
+		"bigImgUrl": "https://cdn.radiovlna.sk/img/Radio_Vlna_Logo.png?v=2024-08-09-2250",
 		"rdsUrl": "https://cdn.radiovlna.sk/sepia/party.xml"
 	},
 	{
@@ -97,6 +150,7 @@
 		"lowUrl": "https://stream.bauermedia.sk/96.mp3",
 		"highUrl": "https://stream.bauermedia.sk/128.mp3",
 		"imgUrl": "https://www.expres.sk/wp-content/uploads/2015/06/cropped-favicon-1-256x256.png",
+		"bigImgUrl": "https://www.expres.sk/wp-content/themes/expres-theme/images/logo_re.svg",
 		"rdsUrl": "https://www.expres.sk/wp-json/expres/v1/playlist"
 	},
 	{
@@ -107,6 +161,7 @@
 		"lowUrl": "https://stream.bauermedia.sk/europa2-lo.mp3",
 		"highUrl": "https://stream.bauermedia.sk/europa2-hi.mp3",
 		"imgUrl": "https://www.europa2.sk/wp-content/uploads/2023/05/cropped-favicon-256x256.png?w=256&h=256",
+		"bigImgUrl": "",
 		"rdsUrl": "https://www.europa2.sk/wp-json/radio/v1/playlist"
 	},
 	{
@@ -117,6 +172,7 @@
 		"lowUrl": "https://ice.actve.net/fm-evropa2-128",
 		"highUrl": "https://ice.actve.net/fm-evropa2-128",
 		"imgUrl": "https://www.europa2.sk/wp-content/uploads/2023/05/cropped-favicon-256x256.png?w=256&h=256",
+		"bigImgUrl": "",
 		"rdsUrl": "https://rds.actve.net/v1/metadata/channel/evropa2"
 	},
 	{
@@ -127,26 +183,18 @@
 		"lowUrl": "https://stream.bauermedia.sk/melody-lo.mp3",
 		"highUrl": "https://stream.bauermedia.sk/melody-hi.mp3",
 		"imgUrl": "https://www.radiomelody.sk/wp-content/uploads/2023/01/cropped-radio-melody-favicon-1-256x256.png?w=256&h=256",
+		"bigImgUrl": "https://www.radiomelody.sk/wp-content/themes/melody/assets/logo.svg",
 		"rdsUrl": "https://www.radiomelody.sk/wp-json/radio/v1/playlist"
-	},
-	{
-		"id": "radiobeat",
-		"name": "Rádio BEAT",
-		"lowInfo": "🇨🇿 128 kbps",
-		"highInfo": "🇨🇿 128 kbps",
-		"lowUrl": "https://n22a-eu.rcs.revma.com/3d47nqvb938uv?rj-ttl=5&rj-tok=AAABikDSDfwAI8NSg34n4xCaOA",
-		"highUrl": "https://n22a-eu.rcs.revma.com/3d47nqvb938uv?rj-ttl=5&rj-tok=AAABikDSDfwAI8NSg34n4xCaOA",
-		"imgUrl": "https://www.radiobeat.cz/img/logo.png",
-		"rdsUrl": ""
 	},
 	{
 		"id": "radiobestfm",
 		"name": "Rádio Best.FM",
-		"lowInfo": "🇸🇰 64 kbps",
-		"highInfo": "🇸🇰 128 kbps",
-		"lowUrl": "https://cors-proxy.elfsight.com/http://stream2.bestfm.sk/64.mp3?_=1",
-		"highUrl": "https://cors-proxy.elfsight.com/http://stream2.bestfm.sk/128.mp3?_=1",
+		"lowInfo": "🇸🇰 160 kbps",
+		"highInfo": "🇸🇰 160 kbps",
+		"lowUrl": "https://stream3.bestfm.sk:8000/160.aac",
+		"highUrl": "https://stream3.bestfm.sk:8000/160.aac",
 		"imgUrl": "https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/c7db24a7-a5f6-4788-8a18-47b78817778a/no-cover.png",
-		"rdsUrl": ""
+		"bigImgUrl": "https://bestfm.sk/assets/images/logo-v600-1388x607.webp",
+		"rdsUrl": "https://stream3.bestfm.sk:8000/"
 	}
 ]

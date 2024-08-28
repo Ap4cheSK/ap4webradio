@@ -10,5 +10,3 @@ async function RDSradioeu2melody(rdsUrl: rdsFormat) {
 }
 
 export default RDSradioeu2melody;
-
-// Not working due to CORS

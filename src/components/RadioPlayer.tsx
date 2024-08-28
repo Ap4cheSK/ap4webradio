@@ -12,6 +12,7 @@ import RDSradioevropa2 from "./rds/RDSradioevropa2";
 import RDSradiorock from "./rds/RDSradiorock";
 import RDSradioeu2melody from "./rds/RDSradioeu2melody";
 import RDSradioexpres from "./rds/RDSradioexpres";
+import RDSbestfm from "./rds/RDSbestfm";
 
 function RadioPlayer() {
 	function playButton() {
@@ -63,6 +64,17 @@ function RadioPlayer() {
 		document.body.removeChild(tempTextArea);
 	}
 
+	function RadioLogo() {
+		if(radioStation?.bigImgUrl === "")
+			return (
+				<img className="radio-player-avatar" src={radioStation.imgUrl ? radioStation.imgUrl : noImage}/>
+			);
+
+		return (
+			<img className="radio-player-avatar big-image" src={radioStation?.bigImgUrl ? radioStation.bigImgUrl : noImage}/>
+		);
+	}
+
 	// Find radiostation
 	const { radioid } = useParams();
 	const radioStation = radioJsonList.find(radio => radio.id === radioid);
@@ -96,8 +108,8 @@ function RadioPlayer() {
 			if(radioStation?.id === "funradio" || radioStation?.id === "radiovlna") {
 				// FunRadio Live / RadioVlna RDS
 				setRdsString(await RDSfunvlna({ rdsUrl: radioStation.rdsUrl }));
-			} else if(radioStation?.id === "funczsk" || radioStation?.id === "fundance" || radioStation?.id === "funchill" || radioStation?.id === "radiovlnarock" || radioStation?.id === "radiovlnaparty") {
-				// FunRadio CZSK / Dance / Chill / RadioVlnaRock / RadioVlnaParty RDS
+			} else if(radioStation?.id === "funczsk" || radioStation?.id === "fundance" || radioStation?.id === "funchill" || radioStation?.id === "radiovlnarock" || radioStation?.id === "radiovlnaparty" || radioStation?.id === "funleto" || radioStation?.id === "funretro" || radioStation?.id === "funmilenial" || radioStation?.id === "funusmev") {
+				// FunRadio CZSK / Dance / Chill / Leto / Milenialky / Usmev / RadioVlnaRock / RadioVlnaParty RDS
 				setRdsString(await RDSfunother({ rdsUrl: radioStation.rdsUrl }));
 			} else if(radioStation?.id === "radioeu2sk" || radioStation?.id === "radiomelody") {
 				// Europa 2 / Melody RDS
@@ -114,6 +126,9 @@ function RadioPlayer() {
 			} else if(radioStation?.id === "radiorock") {
 				// RadioRock RDS
 				setRdsString(await RDSradiorock({ rdsUrl: radioStation.rdsUrl }));
+			} else if(radioStation?.id === "radiobestfm") {
+				// Best.FM RDS
+				setRdsString(await RDSbestfm({ rdsUrl: radioStation.rdsUrl }));
 			} else {
 				// No RDS
 				setRdsString(t("rds_unsupp"));
@@ -153,7 +168,7 @@ function RadioPlayer() {
 			<AppHeader homeBtn={true} settingsBtn={true}/>
 			<section className="radio-player">
 				<section className="radio-player-station">
-					<img className="radio-player-avatar" src={radioStation.imgUrl ? radioStation.imgUrl : noImage}/>
+					<RadioLogo/>
 					<h2 className="radio-player-name">{radioStation.name}</h2>
 					<p className="radio-player-info small-text">{useDataSaving ? radioStation.lowInfo : radioStation.highInfo}</p>
 				</section>

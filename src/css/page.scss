@@ -81,7 +81,7 @@ $textColor: rgb(220, 220, 220);
 	grid-auto-flow: row;
 	align-content: start;
 	justify-items: center;
-	gap: 32px;
+	gap: 48px;
 	padding: 8px;
 	justify-content: center;
 	text-align: center;
@@ -101,7 +101,10 @@ $textColor: rgb(220, 220, 220);
 		justify-items: center;
 		gap: 8px;
 
-		.radio-player-name {color: var(--color-accent);}
+		.radio-player-name {
+			color: var(--color-accent);
+			font-size: 32px;
+		}
 
 		.radio-player-avatar {
 			width: 128px;
@@ -113,6 +116,19 @@ $textColor: rgb(220, 220, 220);
 				width: 192px;
 				height: 192px;
 			}
+		}
+
+		.big-image {
+			width: 256px !important;
+			height: 128px !important;
+			border-radius: 16px !important;
+			object-fit: contain;
+			@media (min-width: 1280px) {
+				width: 512px !important;
+				height: 192px !important;
+			}
+
+			padding: 4px;
 		}
 	}
 

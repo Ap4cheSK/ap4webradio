@@ -47,5 +47,21 @@
 			"Added current app version to footer",
 			"Czech language translated 100% for now"
 		]
+	},
+	{
+		"version": "5.4.0",
+		"date": "28-8-2024",
+		"changes": [
+			"Added 'Big Image' for bigger radio logo in player for almost all Radio stations",
+			"Added Fun Radio Leto (+RDS)",
+			"Added Fun Radio 80's-90's (+RDS)",
+			"Added Fun Radio Milenialky (+RDS)",
+			"Added Fun Radio Usmev (+RDS)",
+			"Added Radio Best.FM RDS",
+			"Fixed Radio Best.FM Stream (only 160kbps!)",
+			"Adjusted Player page layout",
+			"Removed CZ Radio Beat",
+			"Fun Radio Get Fun => Fun Radio Dance"
+		]
 	}
 ]
