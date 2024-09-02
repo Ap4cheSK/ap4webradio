@@ -16,5 +16,19 @@
 	"stg-th-pink": "Růžová",
 	"stg-th-cyan": "Tyrkysová",
 	"stg-th-yellow": "Žlutá",
-	"copy_song_note": "Klikněte pro zkopírování názvu písně"
+	"copy_song_note": "Klikněte pro zkopírování názvu písně",
+	"pp-header": "Zásady ochrany osobních údajů",
+	"pp-update": "Poslední aktualizace: 2. záři 2024",
+	"pp-part-a": "Tyto Zásady ochrany osobních údajů popisují naše zásady a postupy týkající se shromažďování, používání a zveřejňování Vašich informací při používání Služby a informují Vás o Vašich právech na soukromí a o tom, jak Vás chrání zákony.",
+	"pp-part-b": "Nezpracováváme Vaše osobní údaje. Veškerá data potřebná ke zlepšení Služby poskytované Vám jsou uložena na Vašem počítači, mobilním telefonu nebo jakémkoli jiném zařízení pomocí technologie 'LocalStorage'.",
+	"pp-device": "Zařízení",
+	"pp-device-a": "je jakékoli zařízení, jako je počítač, mobilní telefon nebo jakékoli jiné zařízení, které se může připojit k webové stránce a používat ji.",
+	"pp-cookies": "jsou malé soubory, které jsou umístěny na Vašem zařízení webovou stránkou a obsahují podrobnosti o Vaší historii prohlížení a/nebo nastavení na této webové stránce mezi mnoha dalšími funkcemi.",
+	"pp-ls": "je typ cookies, které jsou uloženy pouze na Vašem zařízení a nejsou podepsány nebo vytvořeny poskytovatelem Služby (Serverem).",
+	"pp-datac": "Shromažďování dat",
+	"pp-datac-a": "Data potřebná ke zlepšení Služby poskytované Vám jsou výhradně uložena na Vašem zařízení, což znamená, že poskytovatel Služby k těmto datům nemá přístup.",
+	"pp-types": "Typy shromažďovaných údajů o používání",
+	"pp-types-a": "Nastavení v aplikaci, která zlepšují zkušenosti při používání Služby",
+	"pp-agree": "Souhlas",
+	"pp-agree-a": "Používáním této Služby souhlasíte s těmito Zásadami."
 }
