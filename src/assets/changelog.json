@@ -68,7 +68,8 @@
 		"version": "5.5.0",
 		"date": "2-9-2024",
 		"changes": [
-			"Removed SK FunRadio Usmev"
+			"Removed SK FunRadio Usmev",
+			"Added option to copy song name clicking on 'Click to copy...' text"
 		]
 	}
 ]

@@ -162,7 +162,7 @@ $textColor: rgb(220, 220, 220);
 	}
 
 	.playing-now {color: var(--color-accent);}
-	.copy-text {color: grey;}
+	.copy-text {color: grey; cursor: pointer;}
 	.radio-player-song {cursor: pointer;}
 
 	#sound-wave {
