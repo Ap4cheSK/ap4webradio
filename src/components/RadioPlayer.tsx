@@ -184,7 +184,7 @@ function RadioPlayer() {
 				<section className="radio-player-rds">
 					<h2 className="playing-now">{t("playing_now")}</h2>
 					<h3 className="radio-player-song" onClick={handleCopyNow} title={`${rdsString} | Click to copy song name`}>{rdsString}</h3>
-					<p className="copy-text small-text" onClick={handleCopyNow}>Click to copy song name</p>
+					<p className="copy-text small-text" onClick={handleCopyNow}>{t("copy_song_note")}</p>
 				</section>
 
 				<div id="sound-wave" ref={soundWaveRef} aria-label="Audio animation">
