@@ -77,17 +77,6 @@
 		"rdsUrl": "https://cdn.funradio.sk/sepia/milenialky.xml"
 	},
 	{
-		"id": "funusmev",
-		"name": "Fun Rádio Úsmev :)",
-		"lowInfo": "🇸🇰 64 kbps",
-		"highInfo": "🇸🇰 128 kbps",
-		"lowUrl": "https://stream.funradio.sk:8000/usmev64.mp3",
-		"highUrl": "https://stream.funradio.sk:8000/usmev128.mp3",
-		"imgUrl": "https://www.funradio.sk/img/logo/apple-icon-180x180.png",
-		"bigImgUrl": "https://www.funradio.sk/static/stream/2024/05/6655bfe33191e/logo.svg?v=2024-07-02-155216",
-		"rdsUrl": "https://cdn.funradio.sk/sepia/usmev.xml"
-	},
-	{
 		"id": "radioke",
 		"name": "Rádio Košice",
 		"lowInfo": "🇸🇰 64 kbps",

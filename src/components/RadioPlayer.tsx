@@ -108,7 +108,7 @@ function RadioPlayer() {
 			if(radioStation?.id === "funradio" || radioStation?.id === "radiovlna") {
 				// FunRadio Live / RadioVlna RDS
 				setRdsString(await RDSfunvlna({ rdsUrl: radioStation.rdsUrl }));
-			} else if(radioStation?.id === "funczsk" || radioStation?.id === "fundance" || radioStation?.id === "funchill" || radioStation?.id === "radiovlnarock" || radioStation?.id === "radiovlnaparty" || radioStation?.id === "funleto" || radioStation?.id === "funretro" || radioStation?.id === "funmilenial" || radioStation?.id === "funusmev") {
+			} else if(radioStation?.id === "funczsk" || radioStation?.id === "fundance" || radioStation?.id === "funchill" || radioStation?.id === "radiovlnarock" || radioStation?.id === "radiovlnaparty" || radioStation?.id === "funleto" || radioStation?.id === "funretro" || radioStation?.id === "funmilenial") {
 				// FunRadio CZSK / Dance / Chill / Leto / Milenialky / Usmev / RadioVlnaRock / RadioVlnaParty RDS
 				setRdsString(await RDSfunother({ rdsUrl: radioStation.rdsUrl }));
 			} else if(radioStation?.id === "radioeu2sk" || radioStation?.id === "radiomelody") {

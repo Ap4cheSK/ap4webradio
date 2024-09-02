@@ -63,5 +63,12 @@
 			"Removed CZ Radio Beat",
 			"Fun Radio Get Fun => Fun Radio Dance"
 		]
+	},
+	{
+		"version": "5.5.0",
+		"date": "2-9-2024",
+		"changes": [
+			"Removed SK FunRadio Usmev"
+		]
 	}
 ]
