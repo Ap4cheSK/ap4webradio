@@ -29,7 +29,7 @@ function Changelog() {
 			<section className="privacy-policy">
 				<h2 className="page-header">Changelog</h2>
 
-				{changelogJson.map(changelog => (
+				{changelogJson.slice().reverse().map(changelog => (
 					<ChangelogCard version={changelog.version} date={changelog.date} changes={changelog.changes}/>	
 				))}
 				
