@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import changelogJson from "../assets/changelog.json";
 import AppHeader from "./AppHeader";
 import AppFooter from "./AppFooter";
@@ -22,12 +23,14 @@ function ChangelogCard(info: changelogInfo) {
 }
 
 function Changelog() {
+	const { t } = useTranslation();
+
 	return (
 		<>
 			<AppHeader homeBtn={true} settingsBtn={true}/>
 
 			<section className="privacy-policy">
-				<h2 className="page-header">Changelog</h2>
+				<h2 className="page-header">{t("cl-header")}</h2>
 
 				{changelogJson.slice().reverse().map(changelog => (
 					<ChangelogCard version={changelog.version} date={changelog.date} changes={changelog.changes}/>	

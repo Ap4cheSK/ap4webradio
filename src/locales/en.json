@@ -30,5 +30,6 @@
 	"pp-types": "Types of Usage Data collected",
 	"pp-types-a": "Settings in the application which improves experience using Service",
 	"pp-agree": "Agreement",
-	"pp-agree-a": "You are agreeing to these Policies by using this Service"
+	"pp-agree-a": "You are agreeing to these Policies by using this Service",
+	"cl-header": "Changelog"
 }

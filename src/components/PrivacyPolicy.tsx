@@ -1,6 +1,6 @@
+import { useTranslation } from "react-i18next";
 import AppHeader from "./AppHeader";
 import AppFooter from "./AppFooter";
-import { useTranslation } from "react-i18next";
 
 function PrivacyPolicy() {
 	const { t } = useTranslation();
