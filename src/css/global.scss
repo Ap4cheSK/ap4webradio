@@ -85,15 +85,13 @@ select {
 		justify-content: center;
 		align-content: center;
 		
-		svg {
-			height: 30px;
-			color: white;
-			transition: 0.2s;
-		}
+		font-size: 30px;
+		color: white;
+		transition: 0.2s;
 	}
-	#app-header-settings:hover svg {transform: rotate(180deg) scale(1.2);}
-	#app-header-back:hover svg {transform: scale(1.2);}
-	#app-header-back:hover svg, #app-header-settings:hover svg {color: var(--color-accent);}
+	#app-header-settings:hover {transform: rotate(180deg) scale(1.2);}
+	#app-header-back:hover {transform: scale(1.2);}
+	#app-header-back:hover, #app-header-settings:hover {color: var(--color-accent);}
 }
 
 // Footer
@@ -110,8 +108,8 @@ select {
 
 	.footer-contact {
 		p {margin-bottom: 4px;}
-		.discord-icon {width: 32px;}
-		.discord-icon, p {color: white;}
+		font-size: 28px;
+		color: white;
 		display: flex;
 		justify-content: center;
 		flex-direction: row;
@@ -132,16 +130,6 @@ select {
 	}
 
 	.footer-changelog {
-		&:hover a {
-			color: var(--color-accent);
-			gap: 8px;
-
-			.changelog-icon {
-				color: var(--color-accent);
-				transform: scale(1.2);
-			}
-		}
-
 		a {
 			display: grid;
 			justify-content: center;
@@ -149,15 +137,13 @@ select {
 			align-items: center;
 			gap: 4px;
 			color: white;
-			transition: .1s ease-in-out;
+			
+			font-size: 28px;
+			color: white;
+			transition: .1s ease-in-out !important;
 
-			.changelog-icon {
-				width: 32px;
-				color: white;
-				transition: .1s ease-in-out;
-			}
-
-			@media(min-width: 720px) {justify-content: right;;}
+			&:hover {color: var(--color-accent);}
+			@media(min-width: 720px) {justify-content: right;}
 		}
 	}
 

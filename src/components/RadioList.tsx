@@ -98,7 +98,7 @@ function RadioItem(radioStation:radioStationFormat) {
 
 function RadioList() {
 	const [useDataSaving, setUseDataSaving] = useState(false);
-	const { t } = useTranslation();
+	// const { t } = useTranslation();
 	
 	useEffect(() => {
 		const ls_dataSaving = localStorage.getItem("app_data_saving");
@@ -109,22 +109,19 @@ function RadioList() {
 		<>
 			<AppHeader settingsBtn={true}/>
 			<section>
-				<div>
-					<p>refresh rds</p>
-				</div>
 				<section className="radio-list">
 					{radioJsonList.map(station => (
 						station.rdsUrl ?
 						<RadioItem key={station.id} id={station.id} name={station.name} info={useDataSaving ? station.lowInfo : station.highInfo} imgUrl={station.imgUrl} rdsUrl={station.rdsUrl}/> : ""
 					))}
 				</section>
-				<h2 className="radio-list-group">{t("rds_unsupp")}</h2>
+				{/* <h2 className="radio-list-group">{t("rds_unsupp")}</h2>
 				<section className="radio-list">
 					{radioJsonList.map(station => (
 						!station.rdsUrl ?
 						<RadioItem key={station.id} id={station.id} name={station.name} info={useDataSaving ? station.lowInfo : station.highInfo} imgUrl={station.imgUrl} rdsUrl={""}/> : ""
 					))}
-				</section>
+				</section> */}
 			</section>
 			<AppFooter/>
 		</>
