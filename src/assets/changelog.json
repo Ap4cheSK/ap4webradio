@@ -78,6 +78,7 @@
 		"version": "5.6.0",
 		"date": "31-1-2025",
 		"changes": [
+			"Added Playlist function, not all radios supported",
 			"Added Force-refresh RDS to Radio Player",
 			"Optimizations, package updates",
 			"Removed Fun Rádio Leto",

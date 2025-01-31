@@ -12,6 +12,7 @@ import ErrorPage from "./components/ErrorPage";
 import RadioSettings from './components/RadioSettings';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Changelog from './components/Changelog';
+import Playlist from './components/Playlist';
 
 function App() {
 	useEffect(() => {
@@ -28,6 +29,7 @@ function App() {
 			<Routes>
 				<Route index path='/' element={<RadioList/>}/>
 				<Route path='/radio/:radioid' element={<RadioPlayer/>}/>
+				<Route path='/playlist/:radioid' element={<Playlist/>}/>
 				<Route path='/settings' element={<RadioSettings/>}/>
 				<Route path='/privacypolicy' element={<PrivacyPolicy/>}/>
 				<Route path='/changelog' element={<Changelog/>}/>

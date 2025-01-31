@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import radioJsonList from "../assets/radios.json";
 import AppHeader from "./AppHeader";
@@ -205,6 +205,9 @@ function RadioPlayer() {
 					<p className="refresh-text" onClick={rdsCall}>
 						<i className="fa-solid fa-arrows-rotate"></i> Refresh song
 					</p>
+					<Link to={`/playlist/${radioStation.id}`} className="playlist-link">
+						<p><i className="fa-solid fa-list"></i> Playlist</p>
+					</Link>
 				</section>
 
 				<div id="sound-wave" ref={soundWaveRef} aria-label="Audio animation">

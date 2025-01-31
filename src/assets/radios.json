@@ -74,7 +74,7 @@
 		"highUrl": "https://stream.21.sk/radiokosice-128.mp3",
 		"imgUrl": "https://www.radiokosice.sk/favicon-196x196.png",
 		"bigImgUrl": "https://www.radiokosice.sk/static/media/radio-ke@2x.f197d793.png",
-		"rdsUrl": "https://www.tvkosice.sk/api/playlists/radiokosice?limit=2"
+		"rdsUrl": "https://www.tvkosice.sk/api/playlists/radiokosice"
 	},
 	{
 		"id": "radiorock",

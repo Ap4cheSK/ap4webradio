@@ -81,7 +81,7 @@ $textColor: rgb(220, 220, 220);
 	grid-auto-flow: row;
 	align-content: start;
 	justify-items: center;
-	gap: 48px;
+	gap: 32px;
 	padding: 8px;
 	justify-content: center;
 	text-align: center;
@@ -306,5 +306,43 @@ $textColor: rgb(220, 220, 220);
 		list-style-position: inside;
 		padding: 2px;
 		color: $textColor;
+	}
+}
+
+// Playlist
+
+.playlist-link {
+	cursor: pointer;
+	color: white;
+	p {margin-top: 8px;}
+	&:hover p {color: var(--color-accent);}
+}
+
+.pl-unsupported {color: white;}
+
+.playlist-wrapper {
+	display: flex;
+	flex-flow: column nowrap;
+	border-collapse: collapse;
+
+	.playlist-item {
+		display: grid;
+		grid-template-columns: auto 1fr 1fr;
+		justify-content: start;
+		gap: 16px;
+
+		padding: 8px 2px;
+		text-align: start;
+		border-top: 1px solid white;
+
+		&:first-child {border-top: none;}
+		.playlist-timestamp {color: var(--color-accent);}
+
+		@media(max-width: 720px) {
+			grid-template-columns: initial;
+			gap: 2px;
+			justify-content: center;
+			text-align: center;
+		}
 	}
 }
