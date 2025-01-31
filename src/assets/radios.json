@@ -11,17 +11,6 @@
 		"rdsUrl": "https://cdn.funradio.sk/sepia/live.xml"
 	},
 	{
-		"id": "funleto",
-		"name": "Fun Rádio Leto",
-		"lowInfo": "🇸🇰 64 kbps",
-		"highInfo": "🇸🇰 128 kbps",
-		"lowUrl": "https://stream.funradio.sk:18443/summer128.mp3",
-		"highUrl": "https://stream.funradio.sk:18443/summer128.mp3",
-		"imgUrl": "https://www.funradio.sk/img/logo/apple-icon-180x180.png",
-		"bigImgUrl": "https://www.funradio.sk/static/stream/2019/11/5de2efe62a358/logo.svg?v=2024-07-02-155203",
-		"rdsUrl": "https://cdn.funradio.sk/sepia/summer.xml"
-	},
-	{
 		"id": "fundance",
 		"name": "Fun Rádio Dance",
 		"lowInfo": "🇸🇰 64 kbps",

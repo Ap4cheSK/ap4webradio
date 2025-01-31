@@ -27,45 +27,59 @@ function RadioItem(radioStation:radioStationFormat) {
 	const { t } = useTranslation();
 	const [rdsString, setRdsString] = useState("");
 
-	useEffect(() => {
-		if(radioStation.rdsUrl === "") {
-			setRdsString("");
-			return;
-		}
-
-		// Start RDS Calls if RDS present
-		rdsCall();
-		async function rdsCall() {
-			if(radioStation?.id === "funradio" || radioStation?.id === "radiovlna") {
-				// FunRadio Live / RadioVlna RDS
+	async function rdsCall() {
+		switch (radioStation.id) {
+			case "funradio":
+			case "radiovlna":
 				setRdsString(await RDSfunvlna({ rdsUrl: radioStation.rdsUrl }));
-			} else if(radioStation?.id === "funczsk" || radioStation?.id === "fundance" || radioStation?.id === "funchill" || radioStation?.id === "radiovlnarock" || radioStation?.id === "radiovlnaparty" || radioStation?.id === "funleto" || radioStation?.id === "funretro" || radioStation?.id === "funmilenial") {
-				// FunRadio CZSK / Dance / Chill / RadioVlnaRock / RadioVlnaParty RDS
-				setRdsString(await RDSfunother({ rdsUrl: radioStation.rdsUrl }));
-			} else if(radioStation?.id === "radioeu2sk" || radioStation?.id === "radiomelody") {
-				// Europa 2 / Melody RDS
-				setRdsString(await RDSradioeu2melody({ rdsUrl: radioStation.rdsUrl }));
-			} else if(radioStation?.id === "radioexpress") {
-				// Expres RDS
-				setRdsString(await RDSradioexpres({ rdsUrl: radioStation.rdsUrl }));
-			} else if(radioStation?.id === "radioke") {
-				// RadioKE RDS
-				setRdsString(await RDSradioke({ rdsUrl: radioStation.rdsUrl }));
-			} else if(radioStation?.id === "radioeu2cz") {
-				// Evropa 2 RDS
-				setRdsString(await RDSradioevropa2({ rdsUrl: radioStation.rdsUrl }));
-			} else if(radioStation?.id === "radiorock") {
-				// RadioRock RDS
-				setRdsString(await RDSradiorock({ rdsUrl: radioStation.rdsUrl }));
-			} else if(radioStation?.id === "radiobestfm") {
-				// Best.FM RDS
-				setRdsString(await RDSbestfm({ rdsUrl: radioStation.rdsUrl }));
-			}
-		}
+				break;
 
-		const rdsInterval = setInterval(rdsCall, 1000*60*3); // msec*sec*min
+			case "funczsk":
+			case "fundance":
+			case "funchill":
+			case "radiovlnarock":
+			case "radiovlnaparty":
+			case "funleto":
+			case "funretro":
+			case "funmilenial":
+				setRdsString(await RDSfunother({ rdsUrl: radioStation.rdsUrl }));
+				break;
+
+			case "radioeu2sk":
+			case "radiomelody":
+				setRdsString(await RDSradioeu2melody({ rdsUrl: radioStation.rdsUrl }));
+				break;
+
+			case "radioexpress":
+				setRdsString(await RDSradioexpres({ rdsUrl: radioStation.rdsUrl }));
+				break;
+		
+			case "radioke":
+				setRdsString(await RDSradioke({ rdsUrl: radioStation.rdsUrl }));
+				break;
+
+			case "radioeu2cz":
+				setRdsString(await RDSradioevropa2({ rdsUrl: radioStation.rdsUrl }));
+				break;
+
+			case "radiorock":
+				setRdsString(await RDSradiorock({ rdsUrl: radioStation.rdsUrl }));
+				break;
+
+			case "radiobestfm":
+				setRdsString(await RDSbestfm({ rdsUrl: radioStation.rdsUrl }));
+				break;
+
+			default:
+				setRdsString("");
+				break;
+		}
+	}
+
+	useEffect(() => {
+		rdsCall();
+		const rdsInterval = setInterval(rdsCall, 1000*60*3);
 		return () => clearInterval(rdsInterval);
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (
@@ -95,7 +109,9 @@ function RadioList() {
 		<>
 			<AppHeader settingsBtn={true}/>
 			<section>
-				<h2 className="radio-list-group">{t("rds_supp")}</h2>
+				<div>
+					<p>refresh rds</p>
+				</div>
 				<section className="radio-list">
 					{radioJsonList.map(station => (
 						station.rdsUrl ?
