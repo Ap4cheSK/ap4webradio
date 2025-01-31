@@ -1,5 +1,5 @@
 // React
-import { Routes, Route, HashRouter } from 'react-router-dom';
+import { Routes, Route, HashRouter } from 'react-router';
 import { useEffect } from 'react';
 // Resources
 import './css/global.css';

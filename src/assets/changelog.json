@@ -82,7 +82,8 @@
 			"Added Force-refresh RDS to Radio Player",
 			"Optimizations, package updates",
 			"Removed Fun Rádio Leto",
-			"Code optimization"
+			"Code optimization",
+			"Migrated from react-router-dom@6 to react-router@7"
 		]
 	}
 ]

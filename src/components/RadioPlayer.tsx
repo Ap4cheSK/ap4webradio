@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link } from "react-router";
 import { useTranslation } from "react-i18next";
 import radioJsonList from "../assets/radios.json";
 import AppHeader from "./AppHeader";
