@@ -78,10 +78,10 @@
 		"version": "5.6.0",
 		"date": "31-1-2025",
 		"changes": [
+			"Added Force-refresh RDS to Radio Player",
 			"Optimizations, package updates",
 			"Removed Fun Rádio Leto",
-			"Code optimization",
-			""
+			"Code optimization"
 		]
 	}
 ]
